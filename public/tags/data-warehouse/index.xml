@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Data Warehouse on </title>
+    <link>http://localhost:1313/tags/data-warehouse/</link>
+    <description>Recent content in Data Warehouse on </description>
+    <generator>Hugo -- 0.155.2</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 07 Feb 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/data-warehouse/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>The Depot, the Terminal, and the Modern Hub: Where Does the Data Live?</title>
+      <link>http://localhost:1313/posts/data-storage-facilities/</link>
+      <pubDate>Sat, 07 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/data-storage-facilities/</guid>
+      <description>&lt;p&gt;In our &lt;strong&gt;Invisible City&lt;/strong&gt;, moving data is half the battle. The other half is putting it somewhere. Depending on who you ask—the engineers, the analysts, or the city planners—they’ll give you different answers on where the data should live.&lt;/p&gt;
+&lt;p&gt;Let&amp;rsquo;s walk through the three main types of &amp;ldquo;storage facilities&amp;rdquo; in our city infrastructure, with &lt;strong&gt;Conductor Mickey&lt;/strong&gt; as our guide.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;1-the-data-lake-the-massive-storage-yard&#34;&gt;1. The Data Lake: The Massive Storage Yard&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;The Analogy:&lt;/strong&gt; Imagine a giant, sprawling industrial yard at the edge of the city. It&amp;rsquo;s cheap land where we throw everything. Old train seats, crates of unsorted tickets, literal piles of raw iron, and even some lost luggage.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

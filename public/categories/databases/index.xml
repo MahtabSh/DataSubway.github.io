@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Databases on </title>
+    <link>http://localhost:1313/categories/databases/</link>
+    <description>Recent content in Databases on </description>
+    <generator>Hugo -- 0.155.2</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 08 Feb 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/categories/databases/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Time Travel in Azure SQL Database</title>
+      <link>http://localhost:1313/posts/temporal-tables-shadow-station/</link>
+      <pubDate>Sun, 08 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/temporal-tables-shadow-station/</guid>
+      <description>&lt;p&gt;In our &lt;strong&gt;Invisible City&lt;/strong&gt; subway system, we’ve talked about the &amp;ldquo;Time Machine&amp;rdquo; features in Delta Lake for big data. But what if your main terminal is built on a traditional, reliable foundation like &lt;strong&gt;Azure SQL Database&lt;/strong&gt;?&lt;/p&gt;
+&lt;p&gt;Usually, a database has short-term memory. If a passenger changes their destination from &amp;ldquo;Station A&amp;rdquo; to &amp;ldquo;Station B,&amp;rdquo; the database overwrites the old entry. Station A is gone forever.&lt;/p&gt;
+&lt;p&gt;But sometimes, &lt;strong&gt;Conductor Mickey&lt;/strong&gt; needs to know exactly what the city looked like last Tuesday at 2:00 PM. To do that without a magic wand, he uses &lt;strong&gt;Temporal Tables&lt;/strong&gt;.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

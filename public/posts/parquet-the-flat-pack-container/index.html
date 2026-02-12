@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto" data-theme="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>Why Parquet is the Future of Data Shipping | </title>
+<meta name="keywords" content="Parquet, Optimization, Storage, Big Data">
+<meta name="description" content="In our Invisible City, if the Data Lake is the storage yard, then Parquet is the high-tech, space-saving shipping container we use to pack the goods.
+Most people are used to CSV files—they are like old-fashioned wooden crates. They work, but they are heavy, take up too much space, and are slow to move. Parquet is the &ldquo;Flat-Pack&rdquo; futuristic alternative.
+
+The Vertical Train: Why Data Engineers Love Parquet
+Imagine a subway train full of passengers. Each passenger has a Name, an Age, and a Destination.">
+<meta name="author" content="">
+<link rel="canonical" href="http://localhost:1313/posts/parquet-the-flat-pack-container/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.da3211e5ef867bf2b75fd5a6515cfed7195c011e8ab735694e203810a827097b.css" integrity="sha256-2jIR5e&#43;Ge/K3X9WmUVz&#43;1xlcAR6KtzVpTiA4EKgnCXs=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/posts/parquet-the-flat-pack-container/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+                color-scheme: dark;
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .toc {
+                background: var(--entry);
+            }
+        }
+
+        @media (prefers-color-scheme: light) {
+            .list::-webkit-scrollbar-thumb {
+                border-color: var(--code-bg);
+            }
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script>
+</head>
+<body id="top">
+    <header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/about/" title="About Me">
+                    <span>About Me</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/posts/" title="Blog">
+                    <span>Blog</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/categories/" title="Categories">
+                    <span>Categories</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title entry-hint-parent">
+      Why Parquet is the Future of Data Shipping
+    </h1>
+    <div class="post-meta"><span title='2026-02-08 00:00:00 +0000 UTC'>February 8, 2026</span>
+
+</div>
+  </header> 
+  <div class="post-content"><p>In our <strong>Invisible City</strong>, if the Data Lake is the storage yard, then <strong>Parquet</strong> is the high-tech, space-saving shipping container we use to pack the goods.</p>
+<p>Most people are used to CSV files—they are like old-fashioned wooden crates. They work, but they are heavy, take up too much space, and are slow to move. Parquet is the &ldquo;Flat-Pack&rdquo; futuristic alternative.</p>
+<hr>
+<h2 id="the-vertical-train-why-data-engineers-love-parquet">The Vertical Train: Why Data Engineers Love Parquet<a hidden class="anchor" aria-hidden="true" href="#the-vertical-train-why-data-engineers-love-parquet">#</a></h2>
+<p>Imagine a subway train full of passengers. Each passenger has a <strong>Name</strong>, an <strong>Age</strong>, and a <strong>Destination</strong>.</p>
+<h3 id="the-old-way-the-row-based-commute-csv">The Old Way: The Row-Based Commute (CSV)<a hidden class="anchor" aria-hidden="true" href="#the-old-way-the-row-based-commute-csv">#</a></h3>
+<p>In a traditional file, like a CSV, the data is stored row by row. It’s like a train where every seat has one person. If you want to count how many passengers are going to &ldquo;Grand Central,&rdquo; the conductor (the computer) has to walk through the entire train, looking at every person&rsquo;s name and age just to get to their destination.</p>
+<p><strong>It&rsquo;s a lot of wasted walking!</strong></p>
+<p><img alt="CSV-Robots" loading="lazy" src="/images/post-3-im-1.png"></p>
+<h3 id="the-parquet-way-the-columnar-express">The Parquet Way: The Columnar Express<a hidden class="anchor" aria-hidden="true" href="#the-parquet-way-the-columnar-express">#</a></h3>
+<p>Parquet flips the train on its side. It groups all the <strong>Names</strong> together in one car, all the <strong>Ages</strong> in the second car, and all the <strong>Destinations</strong> in the third car.</p>
+<p>If <strong>Conductor Mickey</strong> needs to know the destinations, he doesn&rsquo;t walk the whole train. He just unhooks the &ldquo;Destination Car,&rdquo; looks at it, and ignores the rest of the train entirely.</p>
+<p><img alt="Parquet-Robots" loading="lazy" src="/images/post-3-im-2.png"></p>
+<hr>
+<h2 id="why-mickey-switched-to-parquet">Why Mickey Switched to Parquet<a hidden class="anchor" aria-hidden="true" href="#why-mickey-switched-to-parquet">#</a></h2>
+<h3 id="1-the-magic-squeeze-compression">1. The &ldquo;Magic Squeeze&rdquo; (Compression)<a hidden class="anchor" aria-hidden="true" href="#1-the-magic-squeeze-compression">#</a></h3>
+<p>Because all the data in one &ldquo;car&rdquo; (column) is the same type (e.g., all numbers or all city names), it’s very easy to compress.</p>
+<ul>
+<li><strong>The Analogy:</strong> It’s like packing a suitcase with only socks. You can squish them down much tighter than a suitcase full of mixed shoes, hats, and coats.</li>
+<li><strong>The Result:</strong> Parquet files take up 60-80% less space than CSVs. Mickey’s storage yard just got a lot bigger!</li>
+</ul>
+<p><img alt="Storage" loading="lazy" src="/images/post-3-im-3.png"></p>
+<h3 id="2-the-short-cut-projection-pushdown">2. The &ldquo;Short Cut&rdquo; (Projection Pushdown)<a hidden class="anchor" aria-hidden="true" href="#2-the-short-cut-projection-pushdown">#</a></h3>
+<p>As we mentioned, if you only need 2 columns out of 100, Parquet only reads those 2.</p>
+<ul>
+<li><strong>The Result:</strong> Your queries run lightning fast because the computer isn&rsquo;t &ldquo;walking&rdquo; through data it doesn&rsquo;t need.</li>
+</ul>
+<p><img alt="Shortcuts" loading="lazy" src="/images/post-3-im-4.png"></p>
+<h3 id="3-the-filter-shield-predicate-pushdown">3. The &ldquo;Filter Shield&rdquo; (Predicate Pushdown)<a hidden class="anchor" aria-hidden="true" href="#3-the-filter-shield-predicate-pushdown">#</a></h3>
+<p>Parquet files store &ldquo;Min/Max&rdquo; values for every block of data. If Mickey is looking for passengers aged 20-30, and a specific block says &ldquo;Min Age: 40,&rdquo; Mickey doesn&rsquo;t even open that crate. He just skips it!</p>
+<hr>
+<h2 id="where-do-we-use-parquet">Where do we use Parquet?<a hidden class="anchor" aria-hidden="true" href="#where-do-we-use-parquet">#</a></h2>
+<p>In the modern city, almost every high-speed line uses Parquet:</p>
+<ul>
+<li><strong>Spark:</strong> It’s the default language for Mickey’s big engines.</li>
+<li><strong>AWS S3 / Azure Data Lake:</strong> It’s how we store data in the &ldquo;Yard&rdquo; to keep costs low.</li>
+<li><strong>Delta Lake:</strong> This &ldquo;Lakehouse&rdquo; we talked about? It’s basically Parquet files with a fancy brain on top.</li>
+</ul>
+<hr>
+<h2 id="conclusion-dont-be-a-csv-commuter">Conclusion: Don&rsquo;t be a &ldquo;CSV Commuter&rdquo;<a hidden class="anchor" aria-hidden="true" href="#conclusion-dont-be-a-csv-commuter">#</a></h2>
+<p>If you’re still moving data in CSV crates, your subway is going to be slow and expensive. Switching to Parquet is like upgrading from a horse and buggy to a high-speed maglev train.</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="http://localhost:1313/tags/parquet/">Parquet</a></li>
+      <li><a href="http://localhost:1313/tags/optimization/">Optimization</a></li>
+      <li><a href="http://localhost:1313/tags/storage/">Storage</a></li>
+      <li><a href="http://localhost:1313/tags/big-data/">Big Data</a></li>
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2026 <a href="http://localhost:1313/"></a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

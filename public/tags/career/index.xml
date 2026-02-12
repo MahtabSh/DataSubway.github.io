@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Career on </title>
+    <link>http://localhost:1313/tags/career/</link>
+    <description>Recent content in Career on </description>
+    <generator>Hugo -- 0.155.2</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 07 Feb 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/career/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Why I Build Data Subways</title>
+      <link>http://localhost:1313/posts/the-invisible-city/</link>
+      <pubDate>Sat, 07 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/the-invisible-city/</guid>
+      <description>&lt;p&gt;If you walk through a bustling city like New York, Tokyo, or London, you see the lights, the shops, and the skyscrapers. That is the &lt;strong&gt;Front-end&lt;/strong&gt;. If you look at the people making big decisions in boardrooms based on colorful charts, that is &lt;strong&gt;Data Analytics&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;But beneath their feet, there is a second city. A city of tunnels, high-voltage cables, and steel tracks. Thousands of people are moving through the dark at 60 miles per hour so that the &amp;ldquo;visible&amp;rdquo; city can function.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Delta Lake on </title>
+    <link>http://localhost:1313/tags/delta-lake/</link>
+    <description>Recent content in Delta Lake on </description>
+    <generator>Hugo -- 0.155.2</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 08 Feb 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/delta-lake/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Understanding Delta Lake and Delta Tables</title>
+      <link>http://localhost:1313/posts/the-smart-depot-delta-lake/</link>
+      <pubDate>Sun, 08 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/the-smart-depot-delta-lake/</guid>
+      <description>&lt;p&gt;In our &lt;strong&gt;Invisible City&lt;/strong&gt; subway system, we’ve already upgraded our shipping containers from old wooden crates (CSV) to futuristic, high-tech pods (Parquet). But a depot full of pods is still just a pile of boxes.&lt;/p&gt;
+&lt;p&gt;If a train crashes while unloading, or if two conductors try to move the same crate at once, you get a &lt;strong&gt;&amp;ldquo;Data Crash.&amp;rdquo;&lt;/strong&gt; To solve this, Conductor Mickey uses a special system: &lt;strong&gt;Delta Lake&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;But wait—is &amp;ldquo;Delta Lake&amp;rdquo; the same as a &amp;ldquo;Delta Table&amp;rdquo;? Let’s clear up the confusion with a trip to the Smart Depot.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Tags on </title>
+    <link>http://localhost:1313/tags/</link>
+    <description>Recent content in Tags on </description>
+    <generator>Hugo -- 0.155.2</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 09 Feb 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Best Practices</title>
+      <link>http://localhost:1313/tags/best-practices/</link>
+      <pubDate>Mon, 09 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/best-practices/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Data Modeling</title>
+      <link>http://localhost:1313/tags/data-modeling/</link>
+      <pubDate>Mon, 09 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/data-modeling/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Data Warehousing</title>
+      <link>http://localhost:1313/tags/data-warehousing/</link>
+      <pubDate>Mon, 09 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/data-warehousing/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Dimension Tables</title>
+      <link>http://localhost:1313/tags/dimension-tables/</link>
+      <pubDate>Mon, 09 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/dimension-tables/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Dimensional Modeling</title>
+      <link>http://localhost:1313/tags/dimensional-modeling/</link>
+      <pubDate>Mon, 09 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/dimensional-modeling/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Fact Tables</title>
+      <link>http://localhost:1313/tags/fact-tables/</link>
+      <pubDate>Mon, 09 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/fact-tables/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Normalization</title>
+      <link>http://localhost:1313/tags/normalization/</link>
+      <pubDate>Mon, 09 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/normalization/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Snowflake Schema</title>
+      <link>http://localhost:1313/tags/snowflake-schema/</link>
+      <pubDate>Mon, 09 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/snowflake-schema/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>SQL</title>
+      <link>http://localhost:1313/tags/sql/</link>
+      <pubDate>Mon, 09 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/sql/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Star Schema</title>
+      <link>http://localhost:1313/tags/star-schema/</link>
+      <pubDate>Mon, 09 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/star-schema/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>ACID</title>
+      <link>http://localhost:1313/tags/acid/</link>
+      <pubDate>Sun, 08 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/acid/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Auditing</title>
+      <link>http://localhost:1313/tags/auditing/</link>
+      <pubDate>Sun, 08 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/auditing/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Azure SQL</title>
+      <link>http://localhost:1313/tags/azure-sql/</link>
+      <pubDate>Sun, 08 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/azure-sql/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Big Data</title>
+      <link>http://localhost:1313/tags/big-data/</link>
+      <pubDate>Sun, 08 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/big-data/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Data Quality</title>
+      <link>http://localhost:1313/tags/data-quality/</link>
+      <pubDate>Sun, 08 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/data-quality/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Databricks</title>
+      <link>http://localhost:1313/tags/databricks/</link>
+      <pubDate>Sun, 08 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/databricks/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Delta Lake</title>
+      <link>http://localhost:1313/tags/delta-lake/</link>
+      <pubDate>Sun, 08 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/delta-lake/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>ETL</title>
+      <link>http://localhost:1313/tags/etl/</link>
+      <pubDate>Sun, 08 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/etl/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Medallion Architecture</title>
+      <link>http://localhost:1313/tags/medallion-architecture/</link>
+      <pubDate>Sun, 08 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/medallion-architecture/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Optimization</title>
+      <link>http://localhost:1313/tags/optimization/</link>
+      <pubDate>Sun, 08 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/optimization/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Parquet</title>
+      <link>http://localhost:1313/tags/parquet/</link>
+      <pubDate>Sun, 08 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/parquet/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>SQL Server</title>
+      <link>http://localhost:1313/tags/sql-server/</link>
+      <pubDate>Sun, 08 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/sql-server/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Storage</title>
+      <link>http://localhost:1313/tags/storage/</link>
+      <pubDate>Sun, 08 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/storage/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Temporal Tables</title>
+      <link>http://localhost:1313/tags/temporal-tables/</link>
+      <pubDate>Sun, 08 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/temporal-tables/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Architecture</title>
+      <link>http://localhost:1313/tags/architecture/</link>
+      <pubDate>Sat, 07 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/architecture/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Career</title>
+      <link>http://localhost:1313/tags/career/</link>
+      <pubDate>Sat, 07 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/career/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Cloud</title>
+      <link>http://localhost:1313/tags/cloud/</link>
+      <pubDate>Sat, 07 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/cloud/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Data Lake</title>
+      <link>http://localhost:1313/tags/data-lake/</link>
+      <pubDate>Sat, 07 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/data-lake/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Data Warehouse</title>
+      <link>http://localhost:1313/tags/data-warehouse/</link>
+      <pubDate>Sat, 07 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/data-warehouse/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Lakehouse</title>
+      <link>http://localhost:1313/tags/lakehouse/</link>
+      <pubDate>Sat, 07 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/lakehouse/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Data Engineering</title>
+      <link>http://localhost:1313/tags/data-engineering/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/data-engineering/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>

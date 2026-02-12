@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto" data-theme="auto">
+
+<head>
+	<meta name="generator" content="Hugo 0.155.2"><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title></title>
+
+<meta name="description" content="">
+<meta name="author" content="">
+<link rel="canonical" href="http://localhost:1313/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.da3211e5ef867bf2b75fd5a6515cfed7195c011e8ab735694e203810a827097b.css" integrity="sha256-2jIR5e&#43;Ge/K3X9WmUVz&#43;1xlcAR6KtzVpTiA4EKgnCXs=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" type="application/rss+xml" href="http://localhost:1313/index.xml" title="rss">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+                color-scheme: dark;
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .toc {
+                background: var(--entry);
+            }
+        }
+
+        @media (prefers-color-scheme: light) {
+            .list::-webkit-scrollbar-thumb {
+                border-color: var(--code-bg);
+            }
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script>
+</head>
+<body class="list" id="top">
+    <header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/about/" title="About Me">
+                    <span>About Me</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/posts/" title="Blog">
+                    <span>Blog</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/categories/" title="Categories">
+                    <span>Categories</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main"> 
+
+<article class="first-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Star vs. Snowflake
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>This is the final installment of our schema series. We’ve seen the Star Express and the Snowflake District. Now, it’s time for the ultimate showdown. How does Conductor Mickey decide which tracks to lay down for the “Invisible City”?
+In the previous posts, we explored two very different ways to organize a subway station:
+The Star: Fast, flat, and simple. The Snowflake: Detailed, organized, and space-saving. But in the real world of Data Engineering, you can’t always have both. You have to choose your priority: Speed or Storage?
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2026-02-09 00:00:00 +0000 UTC'>February 9, 2026</span></footer>
+  <a class="entry-link" aria-label="post link to Star vs. Snowflake" href="http://localhost:1313/posts/snowflake-vs-start-schema/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">The Snowflake Schema: The &#39;Detailed&#39; District
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>In our Invisible City, as the population grows and the subway map expands, Conductor Mickey sometimes finds that a simple Star Hub isn’t enough. When the “Station” information becomes a giant, messy pile of repeating words, it’s time to move to the Snowflake Schema.
+If the Star Schema is the “Express Line,” the Snowflake is the “Highly Detailed District.”
+What is a Snowflake Schema? In the previous post, we saw how the Star Schema keeps things simple. But what happens when your data starts repeating itself? What if you have 10 million rows, and you’ve written “United States” and “North America” 10 million times?
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2026-02-09 00:00:00 +0000 UTC'>February 9, 2026</span></footer>
+  <a class="entry-link" aria-label="post link to The Snowflake Schema: The &#39;Detailed&#39; District" href="http://localhost:1313/posts/snowflake-schema/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">The Star Schema—The &#39;Express&#39; Hub
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>In our digital subway city, some stations are “Hubs.” They sit right in the middle, and every train line passes through them. In data engineering, if you don’t organize your stations, your subway maps will look like a plate of spaghetti.
+To keep things clean, we use Dimensional Modeling. The most famous layout for speed is the Star Schema.
+What is a Star Schema? The Star Schema is designed for one thing: Speed. It organizes your data into two distinct types of citizens: Facts and Dimensions.
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2026-02-09 00:00:00 +0000 UTC'>February 9, 2026</span></footer>
+  <a class="entry-link" aria-label="post link to The Star Schema—The &#39;Express&#39; Hub" href="http://localhost:1313/posts/star-schema/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">The Medallion Architecture Journey
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>In our Invisible City, the subway doesn’t just move people from point A to point B. It moves them through a refinement process.
+When data first arrives at the station, it’s usually messy, tired, and covered in “digital mud.” We can’t let them go straight to the Mayor’s office (the Business Dashboard) looking like that! To fix this, Conductor Mickey uses the Medallion Architecture.
+It’s a three-stage filtration system that turns “Raw Junk” into “Pure Gold.”
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2026-02-08 00:00:00 +0000 UTC'>February 8, 2026</span></footer>
+  <a class="entry-link" aria-label="post link to The Medallion Architecture Journey" href="http://localhost:1313/posts/medallion-architecture-from-mud-to-medals/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Time Travel in Azure SQL Database
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>In our Invisible City subway system, we’ve talked about the “Time Machine” features in Delta Lake for big data. But what if your main terminal is built on a traditional, reliable foundation like Azure SQL Database?
+Usually, a database has short-term memory. If a passenger changes their destination from “Station A” to “Station B,” the database overwrites the old entry. Station A is gone forever.
+But sometimes, Conductor Mickey needs to know exactly what the city looked like last Tuesday at 2:00 PM. To do that without a magic wand, he uses Temporal Tables.
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2026-02-08 00:00:00 +0000 UTC'>February 8, 2026</span></footer>
+  <a class="entry-link" aria-label="post link to Time Travel in Azure SQL Database" href="http://localhost:1313/posts/temporal-tables-shadow-station/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Understanding Delta Lake and Delta Tables
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>In our Invisible City subway system, we’ve already upgraded our shipping containers from old wooden crates (CSV) to futuristic, high-tech pods (Parquet). But a depot full of pods is still just a pile of boxes.
+If a train crashes while unloading, or if two conductors try to move the same crate at once, you get a “Data Crash.” To solve this, Conductor Mickey uses a special system: Delta Lake.
+But wait—is “Delta Lake” the same as a “Delta Table”? Let’s clear up the confusion with a trip to the Smart Depot.
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2026-02-08 00:00:00 +0000 UTC'>February 8, 2026</span></footer>
+  <a class="entry-link" aria-label="post link to Understanding Delta Lake and Delta Tables" href="http://localhost:1313/posts/the-smart-depot-delta-lake/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Why Parquet is the Future of Data Shipping
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>In our Invisible City, if the Data Lake is the storage yard, then Parquet is the high-tech, space-saving shipping container we use to pack the goods.
+Most people are used to CSV files—they are like old-fashioned wooden crates. They work, but they are heavy, take up too much space, and are slow to move. Parquet is the “Flat-Pack” futuristic alternative.
+The Vertical Train: Why Data Engineers Love Parquet Imagine a subway train full of passengers. Each passenger has a Name, an Age, and a Destination.
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2026-02-08 00:00:00 +0000 UTC'>February 8, 2026</span></footer>
+  <a class="entry-link" aria-label="post link to Why Parquet is the Future of Data Shipping" href="http://localhost:1313/posts/parquet-the-flat-pack-container/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">The Depot, the Terminal, and the Modern Hub: Where Does the Data Live?
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>In our Invisible City, moving data is half the battle. The other half is putting it somewhere. Depending on who you ask—the engineers, the analysts, or the city planners—they’ll give you different answers on where the data should live.
+Let’s walk through the three main types of “storage facilities” in our city infrastructure, with Conductor Mickey as our guide.
+1. The Data Lake: The Massive Storage Yard The Analogy: Imagine a giant, sprawling industrial yard at the edge of the city. It’s cheap land where we throw everything. Old train seats, crates of unsorted tickets, literal piles of raw iron, and even some lost luggage.
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2026-02-07 00:00:00 +0000 UTC'>February 7, 2026</span></footer>
+  <a class="entry-link" aria-label="post link to The Depot, the Terminal, and the Modern Hub: Where Does the Data Live?" href="http://localhost:1313/posts/data-storage-facilities/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Why I Build Data Subways
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>If you walk through a bustling city like New York, Tokyo, or London, you see the lights, the shops, and the skyscrapers. That is the Front-end. If you look at the people making big decisions in boardrooms based on colorful charts, that is Data Analytics.
+But beneath their feet, there is a second city. A city of tunnels, high-voltage cables, and steel tracks. Thousands of people are moving through the dark at 60 miles per hour so that the “visible” city can function.
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2026-02-07 00:00:00 +0000 UTC'>February 7, 2026</span></footer>
+  <a class="entry-link" aria-label="post link to Why I Build Data Subways" href="http://localhost:1313/posts/the-invisible-city/"></a>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2026 <a href="http://localhost:1313/"></a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

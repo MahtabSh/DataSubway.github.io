@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>ETL on </title>
+    <link>http://localhost:1313/tags/etl/</link>
+    <description>Recent content in ETL on </description>
+    <generator>Hugo -- 0.155.2</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 08 Feb 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/etl/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>The Medallion Architecture Journey</title>
+      <link>http://localhost:1313/posts/medallion-architecture-from-mud-to-medals/</link>
+      <pubDate>Sun, 08 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/medallion-architecture-from-mud-to-medals/</guid>
+      <description>&lt;p&gt;In our &lt;strong&gt;Invisible City&lt;/strong&gt;, the subway doesn&amp;rsquo;t just move people from point A to point B. It moves them through a &lt;strong&gt;refinement process&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;When data first arrives at the station, it’s usually messy, tired, and covered in &amp;ldquo;digital mud.&amp;rdquo; We can&amp;rsquo;t let them go straight to the Mayor’s office (the Business Dashboard) looking like that! To fix this, Conductor Mickey uses the &lt;strong&gt;Medallion Architecture&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;It’s a three-stage filtration system that turns &amp;ldquo;Raw Junk&amp;rdquo; into &amp;ldquo;Pure Gold.&amp;rdquo;&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
