@@ -1,0 +1,197 @@
+<!doctype html><html lang=en dir=auto data-theme=auto><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=robots content="index, follow"><title>SQL Window Functions: A Practical Guide | DataSubway</title><meta name=keywords content="SQL,Window Functions,Analytics,Query Optimization"><meta name=description content="Window functions are one of the most powerful and underused features in SQL. Unlike GROUP BY, they let you perform calculations across a set of rows related to the current row — without collapsing the result set.
+
+The Core Syntax
+function_name() OVER (
+    PARTITION BY column1
+    ORDER BY column2
+    ROWS/RANGE BETWEEN ... AND ...
+)
+
+  
+      
+          Clause
+          Purpose
+          Required?
+      
+  
+  
+      
+          PARTITION BY
+          Divides rows into groups (like GROUP BY, but rows are kept)
+          No
+      
+      
+          ORDER BY
+          Defines the order within each partition
+          Depends on function
+      
+      
+          Frame (ROWS BETWEEN)
+          Defines which rows to include relative to the current row
+          No
+      
+  
+
+
+1. Ranking Functions
+ROW_NUMBER()
+Assigns a unique sequential integer to each row within a partition. No ties."><meta name=author content="Mahtab Shahsavan"><link rel=canonical href=https://datasubway.dev/posts/window-functions-sql/><link crossorigin=anonymous href=/assets/css/stylesheet.6627ba232255927c762e1f8388c42e442f79eeb130d4da1f41a7b04502883184.css integrity="sha256-Zie6IyJVknx2Lh+DiMQuRC957rEw1NofQaewRQKIMYQ=" rel="preload stylesheet" as=style><link rel=icon href=https://datasubway.dev/favicon.ico><link rel=icon type=image/png sizes=16x16 href=https://datasubway.dev/favicon-16x16.png><link rel=icon type=image/png sizes=32x32 href=https://datasubway.dev/favicon-32x32.png><link rel=apple-touch-icon href=https://datasubway.dev/apple-touch-icon.png><link rel=mask-icon href=https://datasubway.dev/safari-pinned-tab.svg><meta name=theme-color content="#2e2e33"><meta name=msapplication-TileColor content="#2e2e33"><link rel=alternate hreflang=en href=https://datasubway.dev/posts/window-functions-sql/><noscript><style>#theme-toggle,.top-link{display:none}</style><style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--code-block-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51);color-scheme:dark}.list{background:var(--theme)}.toc{background:var(--entry)}}@media(prefers-color-scheme:light){.list::-webkit-scrollbar-thumb{border-color:var(--code-bg)}}</style></noscript><script>localStorage.getItem("pref-theme")==="dark"?document.querySelector("html").dataset.theme="dark":localStorage.getItem("pref-theme")==="light"?document.querySelector("html").dataset.theme="light":window.matchMedia("(prefers-color-scheme: dark)").matches?document.querySelector("html").dataset.theme="dark":document.querySelector("html").dataset.theme="light"</script><meta property="og:url" content="https://datasubway.dev/posts/window-functions-sql/"><meta property="og:site_name" content="DataSubway"><meta property="og:title" content="SQL Window Functions: A Practical Guide"><meta property="og:description" content="Window functions are one of the most powerful and underused features in SQL. Unlike GROUP BY, they let you perform calculations across a set of rows related to the current row — without collapsing the result set.
+The Core Syntax function_name() OVER ( PARTITION BY column1 ORDER BY column2 ROWS/RANGE BETWEEN ... AND ... ) Clause Purpose Required? PARTITION BY Divides rows into groups (like GROUP BY, but rows are kept) No ORDER BY Defines the order within each partition Depends on function Frame (ROWS BETWEEN) Defines which rows to include relative to the current row No 1. Ranking Functions ROW_NUMBER() Assigns a unique sequential integer to each row within a partition. No ties."><meta property="og:locale" content="en-us"><meta property="og:type" content="article"><meta property="article:section" content="posts"><meta property="article:published_time" content="2026-04-06T00:00:00+00:00"><meta property="article:modified_time" content="2026-04-06T00:00:00+00:00"><meta property="article:tag" content="SQL"><meta property="article:tag" content="Window Functions"><meta property="article:tag" content="Analytics"><meta property="article:tag" content="Query Optimization"><meta name=twitter:card content="summary"><meta name=twitter:title content="SQL Window Functions: A Practical Guide"><meta name=twitter:description content="Window functions are one of the most powerful and underused features in SQL. Unlike GROUP BY, they let you perform calculations across a set of rows related to the current row — without collapsing the result set.
+
+The Core Syntax
+function_name() OVER (
+    PARTITION BY column1
+    ORDER BY column2
+    ROWS/RANGE BETWEEN ... AND ...
+)
+
+  
+      
+          Clause
+          Purpose
+          Required?
+      
+  
+  
+      
+          PARTITION BY
+          Divides rows into groups (like GROUP BY, but rows are kept)
+          No
+      
+      
+          ORDER BY
+          Defines the order within each partition
+          Depends on function
+      
+      
+          Frame (ROWS BETWEEN)
+          Defines which rows to include relative to the current row
+          No
+      
+  
+
+
+1. Ranking Functions
+ROW_NUMBER()
+Assigns a unique sequential integer to each row within a partition. No ties."><script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Posts","item":"https://datasubway.dev/posts/"},{"@type":"ListItem","position":2,"name":"SQL Window Functions: A Practical Guide","item":"https://datasubway.dev/posts/window-functions-sql/"}]}</script><script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"SQL Window Functions: A Practical Guide","name":"SQL Window Functions: A Practical Guide","description":"Window functions are one of the most powerful and underused features in SQL. Unlike GROUP BY, they let you perform calculations across a set of rows related to the current row — without collapsing the result set.\nThe Core Syntax function_name() OVER ( PARTITION BY column1 ORDER BY column2 ROWS/RANGE BETWEEN ... AND ... ) Clause Purpose Required? PARTITION BY Divides rows into groups (like GROUP BY, but rows are kept) No ORDER BY Defines the order within each partition Depends on function Frame (ROWS BETWEEN) Defines which rows to include relative to the current row No 1. Ranking Functions ROW_NUMBER() Assigns a unique sequential integer to each row within a partition. No ties.\n","keywords":["SQL","Window Functions","Analytics","Query Optimization"],"articleBody":"Window functions are one of the most powerful and underused features in SQL. Unlike GROUP BY, they let you perform calculations across a set of rows related to the current row — without collapsing the result set.\nThe Core Syntax function_name() OVER ( PARTITION BY column1 ORDER BY column2 ROWS/RANGE BETWEEN ... AND ... ) Clause Purpose Required? PARTITION BY Divides rows into groups (like GROUP BY, but rows are kept) No ORDER BY Defines the order within each partition Depends on function Frame (ROWS BETWEEN) Defines which rows to include relative to the current row No 1. Ranking Functions ROW_NUMBER() Assigns a unique sequential integer to each row within a partition. No ties.\nSELECT employee_id, department, salary, ROW_NUMBER() OVER (PARTITION BY department ORDER BY salary DESC) AS rank_in_dept FROM employees; Use when: You need exactly one row per group (e.g., the top earner per department).\nRANK() and DENSE_RANK() Both handle ties, but differently:\nRANK() — gaps after ties (1, 2, 2, 4) DENSE_RANK() — no gaps (1, 2, 2, 3) SELECT employee_id, salary, RANK() OVER (ORDER BY salary DESC) AS rank_with_gap, DENSE_RANK() OVER (ORDER BY salary DESC) AS rank_no_gap FROM employees; Use when: You want to find “top N” records and need to handle ties consistently.\n2. Aggregate Window Functions Any standard aggregate (SUM, AVG, COUNT, MIN, MAX) can be used as a window function by adding OVER().\nRunning Total SELECT order_date, revenue, SUM(revenue) OVER (ORDER BY order_date) AS running_total FROM orders; Percentage of Total SELECT department, salary, ROUND(salary / SUM(salary) OVER () * 100, 2) AS pct_of_total_payroll FROM employees; Running Average per Group SELECT department, order_date, revenue, AVG(revenue) OVER ( PARTITION BY department ORDER BY order_date ROWS BETWEEN 6 PRECEDING AND CURRENT ROW ) AS rolling_7day_avg FROM sales; 3. Offset Functions LAG() and LEAD() Access a value from a previous or next row without a self-join.\nSELECT order_date, revenue, LAG(revenue, 1) OVER (ORDER BY order_date) AS prev_day_revenue, LEAD(revenue, 1) OVER (ORDER BY order_date) AS next_day_revenue, revenue - LAG(revenue, 1) OVER (ORDER BY order_date) AS day_over_day_change FROM daily_sales; Use when: Calculating period-over-period changes (MoM, YoY, day-over-day).\nFIRST_VALUE() and LAST_VALUE() Return the first or last value in the window frame.\nSELECT employee_id, department, salary, FIRST_VALUE(salary) OVER ( PARTITION BY department ORDER BY salary DESC ) AS highest_salary_in_dept FROM employees; Watch out: LAST_VALUE() requires an explicit frame (ROWS BETWEEN UNBOUNDED PRECEDING AND UNBOUNDED FOLLOWING) because the default frame stops at the current row.\n4. Frame Clauses The frame defines which rows are included in the window relative to the current row.\nFrame Meaning ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW All rows from the start of the partition to now (running total) ROWS BETWEEN 2 PRECEDING AND CURRENT ROW Current row + 2 rows before (3-row rolling window) ROWS BETWEEN UNBOUNDED PRECEDING AND UNBOUNDED FOLLOWING All rows in the partition RANGE BETWEEN INTERVAL '7' DAY PRECEDING AND CURRENT ROW Rows within the last 7 days by date value 5. Common Patterns Deduplicate: Keep the latest record per ID WITH ranked AS ( SELECT *, ROW_NUMBER() OVER (PARTITION BY user_id ORDER BY updated_at DESC) AS rn FROM users ) SELECT * FROM ranked WHERE rn = 1; Find records where a value changed WITH changes AS ( SELECT *, LAG(status) OVER (PARTITION BY order_id ORDER BY changed_at) AS prev_status FROM order_history ) SELECT * FROM changes WHERE status \u003c\u003e prev_status OR prev_status IS NULL; Top N per group WITH ranked AS ( SELECT *, DENSE_RANK() OVER (PARTITION BY category ORDER BY sales DESC) AS dr FROM products ) SELECT * FROM ranked WHERE dr \u003c= 3; When to Use Window Functions vs. GROUP BY Situation Use You need aggregated values and the original rows Window function You only need one row per group GROUP BY You need to compare a row to its neighbors Window function (LAG/LEAD) You need a running total or rolling average Window function You need a simple count or sum per group GROUP BY (simpler, often faster) Performance Notes Window functions run after WHERE and GROUP BY, but before ORDER BY and LIMIT. Avoid using window functions in WHERE clauses — wrap in a CTE or subquery first. PARTITION BY on an indexed column significantly improves performance. In columnar warehouses (BigQuery, Snowflake, Redshift), window functions are well-optimized — don’t be afraid to use them. ","wordCount":"716","inLanguage":"en","datePublished":"2026-04-06T00:00:00Z","dateModified":"2026-04-06T00:00:00Z","author":{"@type":"Person","name":"Mahtab Shahsavan"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://datasubway.dev/posts/window-functions-sql/"},"publisher":{"@type":"Organization","name":"DataSubway","logo":{"@type":"ImageObject","url":"https://datasubway.dev/favicon.ico"}}}</script></head><body id=top><header class=header><nav class=nav><div class=logo><a href=https://datasubway.dev/ accesskey=h title="DataSubway (Alt + H)">DataSubway</a><div class=logo-switches><button id=theme-toggle accesskey=t title="(Alt + T)" aria-label="Toggle theme">
+<svg id="moon" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+<svg id="sun" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></button></div></div><ul id=menu><li><a href=https://datasubway.dev/posts/ title=Blog><span>Blog</span></a></li><li><a href=https://datasubway.dev/about/ title=About><span>About</span></a></li></ul></nav></header><div class=site-wrapper><main class=main><article class=post-single><header class=post-header><div class=breadcrumbs><a href=https://datasubway.dev/>Home</a>&nbsp;»&nbsp;<a href=https://datasubway.dev/posts/>Posts</a></div><h1 class="post-title entry-hint-parent">SQL Window Functions: A Practical Guide</h1><div class=post-meta><span title='2026-04-06 00:00:00 +0000 UTC'>April 6, 2026</span>&nbsp;·&nbsp;<span>4 min</span>&nbsp;·&nbsp;<span>Mahtab Shahsavan</span></div></header><div class=post-content><p>Window functions are one of the most powerful and underused features in SQL. Unlike <code>GROUP BY</code>, they let you perform calculations <strong>across a set of rows related to the current row — without collapsing the result set</strong>.</p><hr><h2 id=the-core-syntax>The Core Syntax<a hidden class=anchor aria-hidden=true href=#the-core-syntax>#</a></h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-sql data-lang=sql><span style=display:flex><span>function_name() OVER (
+</span></span><span style=display:flex><span>    PARTITION <span style=color:#66d9ef>BY</span> column1
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>ORDER</span> <span style=color:#66d9ef>BY</span> column2
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>ROWS</span><span style=color:#f92672>/</span>RANGE <span style=color:#66d9ef>BETWEEN</span> ... <span style=color:#66d9ef>AND</span> ...
+</span></span><span style=display:flex><span>)
+</span></span></code></pre></div><table><thead><tr><th style=text-align:left>Clause</th><th style=text-align:left>Purpose</th><th style=text-align:left>Required?</th></tr></thead><tbody><tr><td style=text-align:left><code>PARTITION BY</code></td><td style=text-align:left>Divides rows into groups (like GROUP BY, but rows are kept)</td><td style=text-align:left>No</td></tr><tr><td style=text-align:left><code>ORDER BY</code></td><td style=text-align:left>Defines the order within each partition</td><td style=text-align:left>Depends on function</td></tr><tr><td style=text-align:left>Frame (<code>ROWS BETWEEN</code>)</td><td style=text-align:left>Defines which rows to include relative to the current row</td><td style=text-align:left>No</td></tr></tbody></table><hr><h2 id=1-ranking-functions>1. Ranking Functions<a hidden class=anchor aria-hidden=true href=#1-ranking-functions>#</a></h2><h3 id=row_number><code>ROW_NUMBER()</code><a hidden class=anchor aria-hidden=true href=#row_number>#</a></h3><p>Assigns a unique sequential integer to each row within a partition. No ties.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-sql data-lang=sql><span style=display:flex><span><span style=color:#66d9ef>SELECT</span>
+</span></span><span style=display:flex><span>    employee_id,
+</span></span><span style=display:flex><span>    department,
+</span></span><span style=display:flex><span>    salary,
+</span></span><span style=display:flex><span>    ROW_NUMBER() OVER (PARTITION <span style=color:#66d9ef>BY</span> department <span style=color:#66d9ef>ORDER</span> <span style=color:#66d9ef>BY</span> salary <span style=color:#66d9ef>DESC</span>) <span style=color:#66d9ef>AS</span> rank_in_dept
+</span></span><span style=display:flex><span><span style=color:#66d9ef>FROM</span> employees;
+</span></span></code></pre></div><p><strong>Use when:</strong> You need exactly one row per group (e.g., the top earner per department).</p><hr><h3 id=rank-and-dense_rank><code>RANK()</code> and <code>DENSE_RANK()</code><a hidden class=anchor aria-hidden=true href=#rank-and-dense_rank>#</a></h3><p>Both handle ties, but differently:</p><ul><li><code>RANK()</code> — gaps after ties (1, 2, 2, <strong>4</strong>)</li><li><code>DENSE_RANK()</code> — no gaps (1, 2, 2, <strong>3</strong>)</li></ul><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-sql data-lang=sql><span style=display:flex><span><span style=color:#66d9ef>SELECT</span>
+</span></span><span style=display:flex><span>    employee_id,
+</span></span><span style=display:flex><span>    salary,
+</span></span><span style=display:flex><span>    RANK()       OVER (<span style=color:#66d9ef>ORDER</span> <span style=color:#66d9ef>BY</span> salary <span style=color:#66d9ef>DESC</span>) <span style=color:#66d9ef>AS</span> rank_with_gap,
+</span></span><span style=display:flex><span>    DENSE_RANK() OVER (<span style=color:#66d9ef>ORDER</span> <span style=color:#66d9ef>BY</span> salary <span style=color:#66d9ef>DESC</span>) <span style=color:#66d9ef>AS</span> rank_no_gap
+</span></span><span style=display:flex><span><span style=color:#66d9ef>FROM</span> employees;
+</span></span></code></pre></div><p><strong>Use when:</strong> You want to find &ldquo;top N&rdquo; records and need to handle ties consistently.</p><hr><h2 id=2-aggregate-window-functions>2. Aggregate Window Functions<a hidden class=anchor aria-hidden=true href=#2-aggregate-window-functions>#</a></h2><p>Any standard aggregate (<code>SUM</code>, <code>AVG</code>, <code>COUNT</code>, <code>MIN</code>, <code>MAX</code>) can be used as a window function by adding <code>OVER()</code>.</p><h3 id=running-total>Running Total<a hidden class=anchor aria-hidden=true href=#running-total>#</a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-sql data-lang=sql><span style=display:flex><span><span style=color:#66d9ef>SELECT</span>
+</span></span><span style=display:flex><span>    order_date,
+</span></span><span style=display:flex><span>    revenue,
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>SUM</span>(revenue) OVER (<span style=color:#66d9ef>ORDER</span> <span style=color:#66d9ef>BY</span> order_date) <span style=color:#66d9ef>AS</span> running_total
+</span></span><span style=display:flex><span><span style=color:#66d9ef>FROM</span> orders;
+</span></span></code></pre></div><h3 id=percentage-of-total>Percentage of Total<a hidden class=anchor aria-hidden=true href=#percentage-of-total>#</a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-sql data-lang=sql><span style=display:flex><span><span style=color:#66d9ef>SELECT</span>
+</span></span><span style=display:flex><span>    department,
+</span></span><span style=display:flex><span>    salary,
+</span></span><span style=display:flex><span>    ROUND(salary <span style=color:#f92672>/</span> <span style=color:#66d9ef>SUM</span>(salary) OVER () <span style=color:#f92672>*</span> <span style=color:#ae81ff>100</span>, <span style=color:#ae81ff>2</span>) <span style=color:#66d9ef>AS</span> pct_of_total_payroll
+</span></span><span style=display:flex><span><span style=color:#66d9ef>FROM</span> employees;
+</span></span></code></pre></div><h3 id=running-average-per-group>Running Average per Group<a hidden class=anchor aria-hidden=true href=#running-average-per-group>#</a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-sql data-lang=sql><span style=display:flex><span><span style=color:#66d9ef>SELECT</span>
+</span></span><span style=display:flex><span>    department,
+</span></span><span style=display:flex><span>    order_date,
+</span></span><span style=display:flex><span>    revenue,
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>AVG</span>(revenue) OVER (
+</span></span><span style=display:flex><span>        PARTITION <span style=color:#66d9ef>BY</span> department
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>ORDER</span> <span style=color:#66d9ef>BY</span> order_date
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>ROWS</span> <span style=color:#66d9ef>BETWEEN</span> <span style=color:#ae81ff>6</span> PRECEDING <span style=color:#66d9ef>AND</span> <span style=color:#66d9ef>CURRENT</span> <span style=color:#66d9ef>ROW</span>
+</span></span><span style=display:flex><span>    ) <span style=color:#66d9ef>AS</span> rolling_7day_avg
+</span></span><span style=display:flex><span><span style=color:#66d9ef>FROM</span> sales;
+</span></span></code></pre></div><hr><h2 id=3-offset-functions>3. Offset Functions<a hidden class=anchor aria-hidden=true href=#3-offset-functions>#</a></h2><h3 id=lag-and-lead><code>LAG()</code> and <code>LEAD()</code><a hidden class=anchor aria-hidden=true href=#lag-and-lead>#</a></h3><p>Access a value from a <strong>previous</strong> or <strong>next</strong> row without a self-join.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-sql data-lang=sql><span style=display:flex><span><span style=color:#66d9ef>SELECT</span>
+</span></span><span style=display:flex><span>    order_date,
+</span></span><span style=display:flex><span>    revenue,
+</span></span><span style=display:flex><span>    LAG(revenue, <span style=color:#ae81ff>1</span>)  OVER (<span style=color:#66d9ef>ORDER</span> <span style=color:#66d9ef>BY</span> order_date) <span style=color:#66d9ef>AS</span> prev_day_revenue,
+</span></span><span style=display:flex><span>    LEAD(revenue, <span style=color:#ae81ff>1</span>) OVER (<span style=color:#66d9ef>ORDER</span> <span style=color:#66d9ef>BY</span> order_date) <span style=color:#66d9ef>AS</span> next_day_revenue,
+</span></span><span style=display:flex><span>    revenue <span style=color:#f92672>-</span> LAG(revenue, <span style=color:#ae81ff>1</span>) OVER (<span style=color:#66d9ef>ORDER</span> <span style=color:#66d9ef>BY</span> order_date) <span style=color:#66d9ef>AS</span> day_over_day_change
+</span></span><span style=display:flex><span><span style=color:#66d9ef>FROM</span> daily_sales;
+</span></span></code></pre></div><p><strong>Use when:</strong> Calculating period-over-period changes (MoM, YoY, day-over-day).</p><hr><h3 id=first_value-and-last_value><code>FIRST_VALUE()</code> and <code>LAST_VALUE()</code><a hidden class=anchor aria-hidden=true href=#first_value-and-last_value>#</a></h3><p>Return the first or last value in the window frame.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-sql data-lang=sql><span style=display:flex><span><span style=color:#66d9ef>SELECT</span>
+</span></span><span style=display:flex><span>    employee_id,
+</span></span><span style=display:flex><span>    department,
+</span></span><span style=display:flex><span>    salary,
+</span></span><span style=display:flex><span>    FIRST_VALUE(salary) OVER (
+</span></span><span style=display:flex><span>        PARTITION <span style=color:#66d9ef>BY</span> department <span style=color:#66d9ef>ORDER</span> <span style=color:#66d9ef>BY</span> salary <span style=color:#66d9ef>DESC</span>
+</span></span><span style=display:flex><span>    ) <span style=color:#66d9ef>AS</span> highest_salary_in_dept
+</span></span><span style=display:flex><span><span style=color:#66d9ef>FROM</span> employees;
+</span></span></code></pre></div><blockquote><p><strong>Watch out:</strong> <code>LAST_VALUE()</code> requires an explicit frame (<code>ROWS BETWEEN UNBOUNDED PRECEDING AND UNBOUNDED FOLLOWING</code>) because the default frame stops at the current row.</p></blockquote><hr><h2 id=4-frame-clauses>4. Frame Clauses<a hidden class=anchor aria-hidden=true href=#4-frame-clauses>#</a></h2><p>The frame defines which rows are included in the window relative to the current row.</p><table><thead><tr><th style=text-align:left>Frame</th><th style=text-align:left>Meaning</th></tr></thead><tbody><tr><td style=text-align:left><code>ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW</code></td><td style=text-align:left>All rows from the start of the partition to now (running total)</td></tr><tr><td style=text-align:left><code>ROWS BETWEEN 2 PRECEDING AND CURRENT ROW</code></td><td style=text-align:left>Current row + 2 rows before (3-row rolling window)</td></tr><tr><td style=text-align:left><code>ROWS BETWEEN UNBOUNDED PRECEDING AND UNBOUNDED FOLLOWING</code></td><td style=text-align:left>All rows in the partition</td></tr><tr><td style=text-align:left><code>RANGE BETWEEN INTERVAL '7' DAY PRECEDING AND CURRENT ROW</code></td><td style=text-align:left>Rows within the last 7 days by date value</td></tr></tbody></table><hr><h2 id=5-common-patterns>5. Common Patterns<a hidden class=anchor aria-hidden=true href=#5-common-patterns>#</a></h2><h3 id=deduplicate-keep-the-latest-record-per-id>Deduplicate: Keep the latest record per ID<a hidden class=anchor aria-hidden=true href=#deduplicate-keep-the-latest-record-per-id>#</a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-sql data-lang=sql><span style=display:flex><span><span style=color:#66d9ef>WITH</span> ranked <span style=color:#66d9ef>AS</span> (
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>SELECT</span> <span style=color:#f92672>*</span>,
+</span></span><span style=display:flex><span>        ROW_NUMBER() OVER (PARTITION <span style=color:#66d9ef>BY</span> user_id <span style=color:#66d9ef>ORDER</span> <span style=color:#66d9ef>BY</span> updated_at <span style=color:#66d9ef>DESC</span>) <span style=color:#66d9ef>AS</span> rn
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>FROM</span> users
+</span></span><span style=display:flex><span>)
+</span></span><span style=display:flex><span><span style=color:#66d9ef>SELECT</span> <span style=color:#f92672>*</span> <span style=color:#66d9ef>FROM</span> ranked <span style=color:#66d9ef>WHERE</span> rn <span style=color:#f92672>=</span> <span style=color:#ae81ff>1</span>;
+</span></span></code></pre></div><h3 id=find-records-where-a-value-changed>Find records where a value changed<a hidden class=anchor aria-hidden=true href=#find-records-where-a-value-changed>#</a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-sql data-lang=sql><span style=display:flex><span><span style=color:#66d9ef>WITH</span> changes <span style=color:#66d9ef>AS</span> (
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>SELECT</span> <span style=color:#f92672>*</span>,
+</span></span><span style=display:flex><span>        LAG(status) OVER (PARTITION <span style=color:#66d9ef>BY</span> order_id <span style=color:#66d9ef>ORDER</span> <span style=color:#66d9ef>BY</span> changed_at) <span style=color:#66d9ef>AS</span> prev_status
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>FROM</span> order_history
+</span></span><span style=display:flex><span>)
+</span></span><span style=display:flex><span><span style=color:#66d9ef>SELECT</span> <span style=color:#f92672>*</span> <span style=color:#66d9ef>FROM</span> changes
+</span></span><span style=display:flex><span><span style=color:#66d9ef>WHERE</span> status <span style=color:#f92672>&lt;&gt;</span> prev_status <span style=color:#66d9ef>OR</span> prev_status <span style=color:#66d9ef>IS</span> <span style=color:#66d9ef>NULL</span>;
+</span></span></code></pre></div><h3 id=top-n-per-group>Top N per group<a hidden class=anchor aria-hidden=true href=#top-n-per-group>#</a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-sql data-lang=sql><span style=display:flex><span><span style=color:#66d9ef>WITH</span> ranked <span style=color:#66d9ef>AS</span> (
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>SELECT</span> <span style=color:#f92672>*</span>,
+</span></span><span style=display:flex><span>        DENSE_RANK() OVER (PARTITION <span style=color:#66d9ef>BY</span> category <span style=color:#66d9ef>ORDER</span> <span style=color:#66d9ef>BY</span> sales <span style=color:#66d9ef>DESC</span>) <span style=color:#66d9ef>AS</span> dr
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>FROM</span> products
+</span></span><span style=display:flex><span>)
+</span></span><span style=display:flex><span><span style=color:#66d9ef>SELECT</span> <span style=color:#f92672>*</span> <span style=color:#66d9ef>FROM</span> ranked <span style=color:#66d9ef>WHERE</span> dr <span style=color:#f92672>&lt;=</span> <span style=color:#ae81ff>3</span>;
+</span></span></code></pre></div><hr><h2 id=when-to-use-window-functions-vs-group-by>When to Use Window Functions vs. GROUP BY<a hidden class=anchor aria-hidden=true href=#when-to-use-window-functions-vs-group-by>#</a></h2><table><thead><tr><th style=text-align:left>Situation</th><th style=text-align:left>Use</th></tr></thead><tbody><tr><td style=text-align:left>You need aggregated values <strong>and</strong> the original rows</td><td style=text-align:left>Window function</td></tr><tr><td style=text-align:left>You only need one row per group</td><td style=text-align:left><code>GROUP BY</code></td></tr><tr><td style=text-align:left>You need to compare a row to its neighbors</td><td style=text-align:left>Window function (<code>LAG</code>/<code>LEAD</code>)</td></tr><tr><td style=text-align:left>You need a running total or rolling average</td><td style=text-align:left>Window function</td></tr><tr><td style=text-align:left>You need a simple count or sum per group</td><td style=text-align:left><code>GROUP BY</code> (simpler, often faster)</td></tr></tbody></table><hr><h2 id=performance-notes>Performance Notes<a hidden class=anchor aria-hidden=true href=#performance-notes>#</a></h2><ul><li>Window functions run <strong>after</strong> <code>WHERE</code> and <code>GROUP BY</code>, but <strong>before</strong> <code>ORDER BY</code> and <code>LIMIT</code>.</li><li>Avoid using window functions in <code>WHERE</code> clauses — wrap in a CTE or subquery first.</li><li><code>PARTITION BY</code> on an indexed column significantly improves performance.</li><li>In columnar warehouses (BigQuery, Snowflake, Redshift), window functions are well-optimized — don&rsquo;t be afraid to use them.</li></ul></div><footer class=post-footer><ul class=post-tags><li><a href=https://datasubway.dev/tags/sql/>SQL</a></li><li><a href=https://datasubway.dev/tags/window-functions/>Window Functions</a></li><li><a href=https://datasubway.dev/tags/analytics/>Analytics</a></li><li><a href=https://datasubway.dev/tags/query-optimization/>Query Optimization</a></li></ul><nav class=paginav><a class=next href=https://datasubway.dev/posts/city-constitution-data-governance/><span class=title>Next »</span><br><span>The City Constitution: Establishing Order in the Invisible City</span></a></nav></footer></article></main><aside class=sidebar><div class=sidebar-widget><h3 class=sidebar-title>Series</h3><ul class=sidebar-list><li><a href=https://datasubway.dev/series/the-invisible-city/>The Invisible City</a>
+<span class=sidebar-count>10</span></li><li><a href=https://datasubway.dev/series/engineers-notebook/>Engineer's Notebook</a>
+<span class=sidebar-count>1</span></li></ul></div><div class=sidebar-widget><h3 class=sidebar-title>Categories</h3><ul class=sidebar-list><li><a href=https://datasubway.dev/categories/architecture/>Architecture</a>
+<span class=sidebar-count>9</span></li><li><a href=https://datasubway.dev/categories/data-modeling/>Data Modeling</a>
+<span class=sidebar-count>3</span></li><li><a href=https://datasubway.dev/categories/data-management/>Data Management</a>
+<span class=sidebar-count>1</span></li><li><a href=https://datasubway.dev/categories/databases/>Databases</a>
+<span class=sidebar-count>1</span></li><li><a href=https://datasubway.dev/categories/sql/>SQL</a>
+<span class=sidebar-count>1</span></li><li><a href=https://datasubway.dev/categories/storytelling/>Storytelling</a>
+<span class=sidebar-count>1</span></li></ul></div><div class=sidebar-widget><h3 class=sidebar-title>Tags</h3><div class=sidebar-tags><a href=https://datasubway.dev/tags/data-quality/ class=sidebar-tag>Data Quality</a>
+<a href=https://datasubway.dev/tags/databricks/ class=sidebar-tag>Databricks</a>
+<a href=https://datasubway.dev/tags/snowflake-schema/ class=sidebar-tag>Snowflake Schema</a>
+<a href=https://datasubway.dev/tags/sql/ class=sidebar-tag>SQL</a>
+<a href=https://datasubway.dev/tags/star-schema/ class=sidebar-tag>Star Schema</a>
+<a href=https://datasubway.dev/tags/acid/ class=sidebar-tag>ACID</a>
+<a href=https://datasubway.dev/tags/analytics/ class=sidebar-tag>Analytics</a>
+<a href=https://datasubway.dev/tags/architecture/ class=sidebar-tag>Architecture</a>
+<a href=https://datasubway.dev/tags/auditing/ class=sidebar-tag>Auditing</a>
+<a href=https://datasubway.dev/tags/azure-sql/ class=sidebar-tag>Azure SQL</a>
+<a href=https://datasubway.dev/tags/best-practices/ class=sidebar-tag>Best Practices</a>
+<a href=https://datasubway.dev/tags/big-data/ class=sidebar-tag>Big Data</a>
+<a href=https://datasubway.dev/tags/career/ class=sidebar-tag>Career</a>
+<a href=https://datasubway.dev/tags/cloud/ class=sidebar-tag>Cloud</a>
+<a href=https://datasubway.dev/tags/compliance/ class=sidebar-tag>Compliance</a>
+<a href=https://datasubway.dev/tags/data-governance/ class=sidebar-tag>Data Governance</a>
+<a href=https://datasubway.dev/tags/data-lake/ class=sidebar-tag>Data Lake</a>
+<a href=https://datasubway.dev/tags/data-modeling/ class=sidebar-tag>Data Modeling</a>
+<a href=https://datasubway.dev/tags/data-security/ class=sidebar-tag>Data Security</a>
+<a href=https://datasubway.dev/tags/data-warehouse/ class=sidebar-tag>Data Warehouse</a>
+<a href=https://datasubway.dev/tags/data-warehousing/ class=sidebar-tag>Data Warehousing</a>
+<a href=https://datasubway.dev/tags/delta-lake/ class=sidebar-tag>Delta Lake</a>
+<a href=https://datasubway.dev/tags/dimension-tables/ class=sidebar-tag>Dimension Tables</a>
+<a href=https://datasubway.dev/tags/dimensional-modeling/ class=sidebar-tag>Dimensional Modeling</a>
+<a href=https://datasubway.dev/tags/etl/ class=sidebar-tag>ETL</a>
+<a href=https://datasubway.dev/tags/fact-tables/ class=sidebar-tag>Fact Tables</a>
+<a href=https://datasubway.dev/tags/lakehouse/ class=sidebar-tag>Lakehouse</a>
+<a href=https://datasubway.dev/tags/medallion-architecture/ class=sidebar-tag>Medallion Architecture</a>
+<a href=https://datasubway.dev/tags/metadata/ class=sidebar-tag>Metadata</a>
+<a href=https://datasubway.dev/tags/normalization/ class=sidebar-tag>Normalization</a>
+<a href=https://datasubway.dev/tags/optimization/ class=sidebar-tag>Optimization</a>
+<a href=https://datasubway.dev/tags/parquet/ class=sidebar-tag>Parquet</a>
+<a href=https://datasubway.dev/tags/query-optimization/ class=sidebar-tag>Query Optimization</a>
+<a href=https://datasubway.dev/tags/sql-server/ class=sidebar-tag>SQL Server</a>
+<a href=https://datasubway.dev/tags/storage/ class=sidebar-tag>Storage</a>
+<a href=https://datasubway.dev/tags/temporal-tables/ class=sidebar-tag>Temporal Tables</a>
+<a href=https://datasubway.dev/tags/window-functions/ class=sidebar-tag>Window Functions</a></div></div></aside></div><footer class=footer><span>&copy; 2026 <a href=https://datasubway.dev/>DataSubway</a></span> ·
+<span>Powered by
+<a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
+<a href=https://github.com/adityatelange/hugo-PaperMod/ rel=noopener target=_blank>PaperMod</a></span></footer><a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg viewBox="0 0 12 6" fill="currentColor"><path d="M12 6H0l6-6z"/></svg>
+</a><script>let menu=document.getElementById("menu");if(menu){const e=localStorage.getItem("menu-scroll-position");e&&(menu.scrollLeft=parseInt(e,10)),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}}document.querySelectorAll('a[href^="#"]').forEach(e=>{e.addEventListener("click",function(e){e.preventDefault();var t=this.getAttribute("href").substr(1);window.matchMedia("(prefers-reduced-motion: reduce)").matches?document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView({behavior:"smooth"}),t==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${t}`)})})</script><script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script><script>document.getElementById("theme-toggle").addEventListener("click",()=>{const e=document.querySelector("html");e.dataset.theme==="dark"?(e.dataset.theme="light",localStorage.setItem("pref-theme","light")):(e.dataset.theme="dark",localStorage.setItem("pref-theme","dark"))})</script></body></html>

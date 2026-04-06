@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Engineer's Notebook on DataSubway</title><link>https://datasubway.dev/series/engineers-notebook/</link><description>Recent content in Engineer's Notebook on DataSubway</description><generator>Hugo -- 0.160.0</generator><language>en-us</language><lastBuildDate>Mon, 06 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://datasubway.dev/series/engineers-notebook/index.xml" rel="self" type="application/rss+xml"/><item><title>SQL Window Functions: A Practical Guide</title><link>https://datasubway.dev/posts/window-functions-sql/</link><pubDate>Mon, 06 Apr 2026 00:00:00 +0000</pubDate><guid>https://datasubway.dev/posts/window-functions-sql/</guid><description>&lt;p&gt;Window functions are one of the most powerful and underused features in SQL. Unlike &lt;code&gt;GROUP BY&lt;/code&gt;, they let you perform calculations &lt;strong&gt;across a set of rows related to the current row — without collapsing the result set&lt;/strong&gt;.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id="the-core-syntax"&gt;The Core Syntax&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-sql" data-lang="sql"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;function_name() OVER (
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; PARTITION &lt;span style="color:#66d9ef"&gt;BY&lt;/span&gt; column1
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;ORDER&lt;/span&gt; &lt;span style="color:#66d9ef"&gt;BY&lt;/span&gt; column2
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;ROWS&lt;/span&gt;&lt;span style="color:#f92672"&gt;/&lt;/span&gt;RANGE &lt;span style="color:#66d9ef"&gt;BETWEEN&lt;/span&gt; ... &lt;span style="color:#66d9ef"&gt;AND&lt;/span&gt; ...
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style="text-align: left"&gt;Clause&lt;/th&gt;
+&lt;th style="text-align: left"&gt;Purpose&lt;/th&gt;
+&lt;th style="text-align: left"&gt;Required?&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style="text-align: left"&gt;&lt;code&gt;PARTITION BY&lt;/code&gt;&lt;/td&gt;
+&lt;td style="text-align: left"&gt;Divides rows into groups (like GROUP BY, but rows are kept)&lt;/td&gt;
+&lt;td style="text-align: left"&gt;No&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align: left"&gt;&lt;code&gt;ORDER BY&lt;/code&gt;&lt;/td&gt;
+&lt;td style="text-align: left"&gt;Defines the order within each partition&lt;/td&gt;
+&lt;td style="text-align: left"&gt;Depends on function&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align: left"&gt;Frame (&lt;code&gt;ROWS BETWEEN&lt;/code&gt;)&lt;/td&gt;
+&lt;td style="text-align: left"&gt;Defines which rows to include relative to the current row&lt;/td&gt;
+&lt;td style="text-align: left"&gt;No&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;h2 id="1-ranking-functions"&gt;1. Ranking Functions&lt;/h2&gt;
+&lt;h3 id="row_number"&gt;&lt;code&gt;ROW_NUMBER()&lt;/code&gt;&lt;/h3&gt;
+&lt;p&gt;Assigns a unique sequential integer to each row within a partition. No ties.&lt;/p&gt;</description></item></channel></rss>
