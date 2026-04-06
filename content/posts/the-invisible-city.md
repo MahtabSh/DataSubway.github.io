@@ -3,6 +3,7 @@ title: "Why I Build Data Subways"
 date: 2026-02-07
 tags: ["Architecture", "Career"]
 categories: ["Storytelling"]
+series: ["The Invisible City"]
 # cover:
 #     image: "images/post-1-im-1.png" # Optional: Add a cool subway image here later
 #     alt: "A digital subway tunnel"

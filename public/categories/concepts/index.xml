@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Concepts on </title>
+    <link>http://localhost:1313/categories/concepts/</link>
+    <description>Recent content in Concepts on </description>
+    <generator>Hugo -- 0.155.2</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 06 Apr 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/categories/concepts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Data Governance</title>
+      <link>http://localhost:1313/posts/concept-data-governance/</link>
+      <pubDate>Mon, 06 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/concept-data-governance/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Data Governance&lt;/strong&gt; is the framework of policies, roles, and processes that define &lt;em&gt;who&lt;/em&gt; can do &lt;em&gt;what&lt;/em&gt; with data, and &lt;em&gt;how&lt;/em&gt; that data is managed across its entire lifecycle.&lt;/p&gt;
+&lt;p&gt;It answers three fundamental questions:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Who owns the data?&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Who is allowed to access it?&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;How do we ensure it stays accurate, consistent, and compliant?&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;core-components&#34;&gt;Core Components&lt;/h2&gt;
+&lt;h3 id=&#34;1-data-ownership&#34;&gt;1. Data Ownership&lt;/h3&gt;
+&lt;p&gt;Every dataset has a designated &lt;strong&gt;Data Owner&lt;/strong&gt; — typically a business stakeholder (not IT) — who is accountable for its accuracy and proper use. Alongside them, a &lt;strong&gt;Data Steward&lt;/strong&gt; handles the day-to-day quality checks and enforcement.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

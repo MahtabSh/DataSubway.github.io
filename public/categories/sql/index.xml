@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>SQL on DataSubway</title>
+    <link>http://localhost:1313/categories/sql/</link>
+    <description>Recent content in SQL on DataSubway</description>
+    <generator>Hugo -- 0.155.2</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 06 Apr 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/categories/sql/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>SQL Window Functions: A Practical Guide</title>
+      <link>http://localhost:1313/posts/window-functions-sql/</link>
+      <pubDate>Mon, 06 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/window-functions-sql/</guid>
+      <description>&lt;p&gt;Window functions are one of the most powerful and underused features in SQL. Unlike &lt;code&gt;GROUP BY&lt;/code&gt;, they let you perform calculations &lt;strong&gt;across a set of rows related to the current row — without collapsing the result set&lt;/strong&gt;.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;the-core-syntax&#34;&gt;The Core Syntax&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;function_name() OVER (
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    PARTITION &lt;span style=&#34;color:#66d9ef&#34;&gt;BY&lt;/span&gt; column1
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;ORDER&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;BY&lt;/span&gt; column2
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;ROWS&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;/&lt;/span&gt;RANGE &lt;span style=&#34;color:#66d9ef&#34;&gt;BETWEEN&lt;/span&gt; ... &lt;span style=&#34;color:#66d9ef&#34;&gt;AND&lt;/span&gt; ...
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;Clause&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;Purpose&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;Required?&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;code&gt;PARTITION BY&lt;/code&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;Divides rows into groups (like GROUP BY, but rows are kept)&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;No&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;code&gt;ORDER BY&lt;/code&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;Defines the order within each partition&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;Depends on function&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;Frame (&lt;code&gt;ROWS BETWEEN&lt;/code&gt;)&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;Defines which rows to include relative to the current row&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;No&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;1-ranking-functions&#34;&gt;1. Ranking Functions&lt;/h2&gt;
+&lt;h3 id=&#34;row_number&#34;&gt;&lt;code&gt;ROW_NUMBER()&lt;/code&gt;&lt;/h3&gt;
+&lt;p&gt;Assigns a unique sequential integer to each row within a partition. No ties.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

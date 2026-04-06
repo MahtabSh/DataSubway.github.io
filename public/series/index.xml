@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Series on DataSubway</title>
+    <link>http://localhost:1313/series/</link>
+    <description>Recent content in Series on DataSubway</description>
+    <generator>Hugo -- 0.155.2</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 06 Apr 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/series/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Engineer&#39;s Notebook</title>
+      <link>http://localhost:1313/series/engineers-notebook/</link>
+      <pubDate>Mon, 06 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/series/engineers-notebook/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>The Invisible City</title>
+      <link>http://localhost:1313/series/the-invisible-city/</link>
+      <pubDate>Mon, 06 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/series/the-invisible-city/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>

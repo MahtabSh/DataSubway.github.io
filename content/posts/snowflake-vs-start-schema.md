@@ -4,6 +4,7 @@ date: 2026-02-09
 # description: "How Conductor Mickey decides between speed and storage efficiency in the ultimate data modeling battle."
 categories: ["Architecture", "Data Modeling"]
 tags: ["Star Schema", "Snowflake Schema", "Data Warehousing", "Best Practices"]
+series: ["The Invisible City"]
 # cover:
 #     image: "/images/schema-showdown-banner.jpg"
 #     alt: "Mickey Mouse refereeing a match between a Star and a Snowflake"

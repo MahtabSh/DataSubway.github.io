@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto" data-theme="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>SQL Window Functions: A Practical Guide | DataSubway</title>
+<meta name="keywords" content="SQL, Window Functions, Analytics, Query Optimization">
+<meta name="description" content="Window functions are one of the most powerful and underused features in SQL. Unlike GROUP BY, they let you perform calculations across a set of rows related to the current row — without collapsing the result set.
+
+The Core Syntax
+function_name() OVER (
+    PARTITION BY column1
+    ORDER BY column2
+    ROWS/RANGE BETWEEN ... AND ...
+)
+
+  
+      
+          Clause
+          Purpose
+          Required?
+      
+  
+  
+      
+          PARTITION BY
+          Divides rows into groups (like GROUP BY, but rows are kept)
+          No
+      
+      
+          ORDER BY
+          Defines the order within each partition
+          Depends on function
+      
+      
+          Frame (ROWS BETWEEN)
+          Defines which rows to include relative to the current row
+          No
+      
+  
+
+
+1. Ranking Functions
+ROW_NUMBER()
+Assigns a unique sequential integer to each row within a partition. No ties.">
+<meta name="author" content="">
+<link rel="canonical" href="http://localhost:1313/posts/window-functions-sql/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.118a89fde47bb94b56f51d5b33e1d7d2bf8fde0379fb35413386b9e0fe9030c6.css" integrity="sha256-EYqJ/eR7uUtW9R1bM&#43;HX0r&#43;P3gN5&#43;zVBM4a54P6QMMY=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/posts/window-functions-sql/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+                color-scheme: dark;
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .toc {
+                background: var(--entry);
+            }
+        }
+
+        @media (prefers-color-scheme: light) {
+            .list::-webkit-scrollbar-thumb {
+                border-color: var(--code-bg);
+            }
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script>
+</head>
+<body id="top">
+    <header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="DataSubway (Alt + H)">DataSubway</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/posts/" title="Blog">
+                    <span>Blog</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/about/" title="About">
+                    <span>About</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<div class="site-wrapper">
+      <main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="http://localhost:1313/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:1313/posts/">Posts</a></div>
+    <h1 class="post-title entry-hint-parent">
+      SQL Window Functions: A Practical Guide
+    </h1>
+    <div class="post-meta"><span title='2026-04-06 00:00:00 +0000 UTC'>April 6, 2026</span>&nbsp;·&nbsp;<span>4 min</span>
+
+</div>
+  </header> 
+  <div class="post-content"><p>Window functions are one of the most powerful and underused features in SQL. Unlike <code>GROUP BY</code>, they let you perform calculations <strong>across a set of rows related to the current row — without collapsing the result set</strong>.</p>
+<hr>
+<h2 id="the-core-syntax">The Core Syntax<a hidden class="anchor" aria-hidden="true" href="#the-core-syntax">#</a></h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span>function_name() OVER (
+</span></span><span style="display:flex;"><span>    PARTITION <span style="color:#66d9ef">BY</span> column1
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">ORDER</span> <span style="color:#66d9ef">BY</span> column2
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">ROWS</span><span style="color:#f92672">/</span>RANGE <span style="color:#66d9ef">BETWEEN</span> ... <span style="color:#66d9ef">AND</span> ...
+</span></span><span style="display:flex;"><span>)
+</span></span></code></pre></div><table>
+  <thead>
+      <tr>
+          <th style="text-align: left">Clause</th>
+          <th style="text-align: left">Purpose</th>
+          <th style="text-align: left">Required?</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left"><code>PARTITION BY</code></td>
+          <td style="text-align: left">Divides rows into groups (like GROUP BY, but rows are kept)</td>
+          <td style="text-align: left">No</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>ORDER BY</code></td>
+          <td style="text-align: left">Defines the order within each partition</td>
+          <td style="text-align: left">Depends on function</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Frame (<code>ROWS BETWEEN</code>)</td>
+          <td style="text-align: left">Defines which rows to include relative to the current row</td>
+          <td style="text-align: left">No</td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+<h2 id="1-ranking-functions">1. Ranking Functions<a hidden class="anchor" aria-hidden="true" href="#1-ranking-functions">#</a></h2>
+<h3 id="row_number"><code>ROW_NUMBER()</code><a hidden class="anchor" aria-hidden="true" href="#row_number">#</a></h3>
+<p>Assigns a unique sequential integer to each row within a partition. No ties.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">SELECT</span>
+</span></span><span style="display:flex;"><span>    employee_id,
+</span></span><span style="display:flex;"><span>    department,
+</span></span><span style="display:flex;"><span>    salary,
+</span></span><span style="display:flex;"><span>    ROW_NUMBER() OVER (PARTITION <span style="color:#66d9ef">BY</span> department <span style="color:#66d9ef">ORDER</span> <span style="color:#66d9ef">BY</span> salary <span style="color:#66d9ef">DESC</span>) <span style="color:#66d9ef">AS</span> rank_in_dept
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">FROM</span> employees;
+</span></span></code></pre></div><p><strong>Use when:</strong> You need exactly one row per group (e.g., the top earner per department).</p>
+<hr>
+<h3 id="rank-and-dense_rank"><code>RANK()</code> and <code>DENSE_RANK()</code><a hidden class="anchor" aria-hidden="true" href="#rank-and-dense_rank">#</a></h3>
+<p>Both handle ties, but differently:</p>
+<ul>
+<li><code>RANK()</code> — gaps after ties (1, 2, 2, <strong>4</strong>)</li>
+<li><code>DENSE_RANK()</code> — no gaps (1, 2, 2, <strong>3</strong>)</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">SELECT</span>
+</span></span><span style="display:flex;"><span>    employee_id,
+</span></span><span style="display:flex;"><span>    salary,
+</span></span><span style="display:flex;"><span>    RANK()       OVER (<span style="color:#66d9ef">ORDER</span> <span style="color:#66d9ef">BY</span> salary <span style="color:#66d9ef">DESC</span>) <span style="color:#66d9ef">AS</span> rank_with_gap,
+</span></span><span style="display:flex;"><span>    DENSE_RANK() OVER (<span style="color:#66d9ef">ORDER</span> <span style="color:#66d9ef">BY</span> salary <span style="color:#66d9ef">DESC</span>) <span style="color:#66d9ef">AS</span> rank_no_gap
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">FROM</span> employees;
+</span></span></code></pre></div><p><strong>Use when:</strong> You want to find &ldquo;top N&rdquo; records and need to handle ties consistently.</p>
+<hr>
+<h2 id="2-aggregate-window-functions">2. Aggregate Window Functions<a hidden class="anchor" aria-hidden="true" href="#2-aggregate-window-functions">#</a></h2>
+<p>Any standard aggregate (<code>SUM</code>, <code>AVG</code>, <code>COUNT</code>, <code>MIN</code>, <code>MAX</code>) can be used as a window function by adding <code>OVER()</code>.</p>
+<h3 id="running-total">Running Total<a hidden class="anchor" aria-hidden="true" href="#running-total">#</a></h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">SELECT</span>
+</span></span><span style="display:flex;"><span>    order_date,
+</span></span><span style="display:flex;"><span>    revenue,
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">SUM</span>(revenue) OVER (<span style="color:#66d9ef">ORDER</span> <span style="color:#66d9ef">BY</span> order_date) <span style="color:#66d9ef">AS</span> running_total
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">FROM</span> orders;
+</span></span></code></pre></div><h3 id="percentage-of-total">Percentage of Total<a hidden class="anchor" aria-hidden="true" href="#percentage-of-total">#</a></h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">SELECT</span>
+</span></span><span style="display:flex;"><span>    department,
+</span></span><span style="display:flex;"><span>    salary,
+</span></span><span style="display:flex;"><span>    ROUND(salary <span style="color:#f92672">/</span> <span style="color:#66d9ef">SUM</span>(salary) OVER () <span style="color:#f92672">*</span> <span style="color:#ae81ff">100</span>, <span style="color:#ae81ff">2</span>) <span style="color:#66d9ef">AS</span> pct_of_total_payroll
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">FROM</span> employees;
+</span></span></code></pre></div><h3 id="running-average-per-group">Running Average per Group<a hidden class="anchor" aria-hidden="true" href="#running-average-per-group">#</a></h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">SELECT</span>
+</span></span><span style="display:flex;"><span>    department,
+</span></span><span style="display:flex;"><span>    order_date,
+</span></span><span style="display:flex;"><span>    revenue,
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">AVG</span>(revenue) OVER (
+</span></span><span style="display:flex;"><span>        PARTITION <span style="color:#66d9ef">BY</span> department
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">ORDER</span> <span style="color:#66d9ef">BY</span> order_date
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">ROWS</span> <span style="color:#66d9ef">BETWEEN</span> <span style="color:#ae81ff">6</span> PRECEDING <span style="color:#66d9ef">AND</span> <span style="color:#66d9ef">CURRENT</span> <span style="color:#66d9ef">ROW</span>
+</span></span><span style="display:flex;"><span>    ) <span style="color:#66d9ef">AS</span> rolling_7day_avg
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">FROM</span> sales;
+</span></span></code></pre></div><hr>
+<h2 id="3-offset-functions">3. Offset Functions<a hidden class="anchor" aria-hidden="true" href="#3-offset-functions">#</a></h2>
+<h3 id="lag-and-lead"><code>LAG()</code> and <code>LEAD()</code><a hidden class="anchor" aria-hidden="true" href="#lag-and-lead">#</a></h3>
+<p>Access a value from a <strong>previous</strong> or <strong>next</strong> row without a self-join.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">SELECT</span>
+</span></span><span style="display:flex;"><span>    order_date,
+</span></span><span style="display:flex;"><span>    revenue,
+</span></span><span style="display:flex;"><span>    LAG(revenue, <span style="color:#ae81ff">1</span>)  OVER (<span style="color:#66d9ef">ORDER</span> <span style="color:#66d9ef">BY</span> order_date) <span style="color:#66d9ef">AS</span> prev_day_revenue,
+</span></span><span style="display:flex;"><span>    LEAD(revenue, <span style="color:#ae81ff">1</span>) OVER (<span style="color:#66d9ef">ORDER</span> <span style="color:#66d9ef">BY</span> order_date) <span style="color:#66d9ef">AS</span> next_day_revenue,
+</span></span><span style="display:flex;"><span>    revenue <span style="color:#f92672">-</span> LAG(revenue, <span style="color:#ae81ff">1</span>) OVER (<span style="color:#66d9ef">ORDER</span> <span style="color:#66d9ef">BY</span> order_date) <span style="color:#66d9ef">AS</span> day_over_day_change
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">FROM</span> daily_sales;
+</span></span></code></pre></div><p><strong>Use when:</strong> Calculating period-over-period changes (MoM, YoY, day-over-day).</p>
+<hr>
+<h3 id="first_value-and-last_value"><code>FIRST_VALUE()</code> and <code>LAST_VALUE()</code><a hidden class="anchor" aria-hidden="true" href="#first_value-and-last_value">#</a></h3>
+<p>Return the first or last value in the window frame.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">SELECT</span>
+</span></span><span style="display:flex;"><span>    employee_id,
+</span></span><span style="display:flex;"><span>    department,
+</span></span><span style="display:flex;"><span>    salary,
+</span></span><span style="display:flex;"><span>    FIRST_VALUE(salary) OVER (
+</span></span><span style="display:flex;"><span>        PARTITION <span style="color:#66d9ef">BY</span> department <span style="color:#66d9ef">ORDER</span> <span style="color:#66d9ef">BY</span> salary <span style="color:#66d9ef">DESC</span>
+</span></span><span style="display:flex;"><span>    ) <span style="color:#66d9ef">AS</span> highest_salary_in_dept
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">FROM</span> employees;
+</span></span></code></pre></div><blockquote>
+<p><strong>Watch out:</strong> <code>LAST_VALUE()</code> requires an explicit frame (<code>ROWS BETWEEN UNBOUNDED PRECEDING AND UNBOUNDED FOLLOWING</code>) because the default frame stops at the current row.</p>
+</blockquote>
+<hr>
+<h2 id="4-frame-clauses">4. Frame Clauses<a hidden class="anchor" aria-hidden="true" href="#4-frame-clauses">#</a></h2>
+<p>The frame defines which rows are included in the window relative to the current row.</p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left">Frame</th>
+          <th style="text-align: left">Meaning</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left"><code>ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW</code></td>
+          <td style="text-align: left">All rows from the start of the partition to now (running total)</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>ROWS BETWEEN 2 PRECEDING AND CURRENT ROW</code></td>
+          <td style="text-align: left">Current row + 2 rows before (3-row rolling window)</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>ROWS BETWEEN UNBOUNDED PRECEDING AND UNBOUNDED FOLLOWING</code></td>
+          <td style="text-align: left">All rows in the partition</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>RANGE BETWEEN INTERVAL '7' DAY PRECEDING AND CURRENT ROW</code></td>
+          <td style="text-align: left">Rows within the last 7 days by date value</td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+<h2 id="5-common-patterns">5. Common Patterns<a hidden class="anchor" aria-hidden="true" href="#5-common-patterns">#</a></h2>
+<h3 id="deduplicate-keep-the-latest-record-per-id">Deduplicate: Keep the latest record per ID<a hidden class="anchor" aria-hidden="true" href="#deduplicate-keep-the-latest-record-per-id">#</a></h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">WITH</span> ranked <span style="color:#66d9ef">AS</span> (
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span>,
+</span></span><span style="display:flex;"><span>        ROW_NUMBER() OVER (PARTITION <span style="color:#66d9ef">BY</span> user_id <span style="color:#66d9ef">ORDER</span> <span style="color:#66d9ef">BY</span> updated_at <span style="color:#66d9ef">DESC</span>) <span style="color:#66d9ef">AS</span> rn
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">FROM</span> users
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">FROM</span> ranked <span style="color:#66d9ef">WHERE</span> rn <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+</span></span></code></pre></div><h3 id="find-records-where-a-value-changed">Find records where a value changed<a hidden class="anchor" aria-hidden="true" href="#find-records-where-a-value-changed">#</a></h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">WITH</span> changes <span style="color:#66d9ef">AS</span> (
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span>,
+</span></span><span style="display:flex;"><span>        LAG(status) OVER (PARTITION <span style="color:#66d9ef">BY</span> order_id <span style="color:#66d9ef">ORDER</span> <span style="color:#66d9ef">BY</span> changed_at) <span style="color:#66d9ef">AS</span> prev_status
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">FROM</span> order_history
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">FROM</span> changes
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">WHERE</span> status <span style="color:#f92672">&lt;&gt;</span> prev_status <span style="color:#66d9ef">OR</span> prev_status <span style="color:#66d9ef">IS</span> <span style="color:#66d9ef">NULL</span>;
+</span></span></code></pre></div><h3 id="top-n-per-group">Top N per group<a hidden class="anchor" aria-hidden="true" href="#top-n-per-group">#</a></h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">WITH</span> ranked <span style="color:#66d9ef">AS</span> (
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span>,
+</span></span><span style="display:flex;"><span>        DENSE_RANK() OVER (PARTITION <span style="color:#66d9ef">BY</span> category <span style="color:#66d9ef">ORDER</span> <span style="color:#66d9ef">BY</span> sales <span style="color:#66d9ef">DESC</span>) <span style="color:#66d9ef">AS</span> dr
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">FROM</span> products
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">FROM</span> ranked <span style="color:#66d9ef">WHERE</span> dr <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">3</span>;
+</span></span></code></pre></div><hr>
+<h2 id="when-to-use-window-functions-vs-group-by">When to Use Window Functions vs. GROUP BY<a hidden class="anchor" aria-hidden="true" href="#when-to-use-window-functions-vs-group-by">#</a></h2>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left">Situation</th>
+          <th style="text-align: left">Use</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">You need aggregated values <strong>and</strong> the original rows</td>
+          <td style="text-align: left">Window function</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">You only need one row per group</td>
+          <td style="text-align: left"><code>GROUP BY</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">You need to compare a row to its neighbors</td>
+          <td style="text-align: left">Window function (<code>LAG</code>/<code>LEAD</code>)</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">You need a running total or rolling average</td>
+          <td style="text-align: left">Window function</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">You need a simple count or sum per group</td>
+          <td style="text-align: left"><code>GROUP BY</code> (simpler, often faster)</td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+<h2 id="performance-notes">Performance Notes<a hidden class="anchor" aria-hidden="true" href="#performance-notes">#</a></h2>
+<ul>
+<li>Window functions run <strong>after</strong> <code>WHERE</code> and <code>GROUP BY</code>, but <strong>before</strong> <code>ORDER BY</code> and <code>LIMIT</code>.</li>
+<li>Avoid using window functions in <code>WHERE</code> clauses — wrap in a CTE or subquery first.</li>
+<li><code>PARTITION BY</code> on an indexed column significantly improves performance.</li>
+<li>In columnar warehouses (BigQuery, Snowflake, Redshift), window functions are well-optimized — don&rsquo;t be afraid to use them.</li>
+</ul>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="http://localhost:1313/tags/sql/">SQL</a></li>
+      <li><a href="http://localhost:1313/tags/window-functions/">Window Functions</a></li>
+      <li><a href="http://localhost:1313/tags/analytics/">Analytics</a></li>
+      <li><a href="http://localhost:1313/tags/query-optimization/">Query Optimization</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="next" href="http://localhost:1313/posts/city-constitution-data-governance/">
+    <span class="title">Next »</span>
+    <br>
+    <span>The City Constitution: Establishing Order in the Invisible City</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+      </main><aside class="sidebar">
+
+  
+  <div class="sidebar-widget">
+    <h3 class="sidebar-title">Series</h3>
+    <ul class="sidebar-list">
+      
+      <li>
+        <a href="http://localhost:1313/series/the-invisible-city/">The Invisible City</a>
+        <span class="sidebar-count">10</span>
+      </li>
+      
+      <li>
+        <a href="http://localhost:1313/series/engineers-notebook/">Engineer&#39;s Notebook</a>
+        <span class="sidebar-count">1</span>
+      </li>
+      
+    </ul>
+  </div>
+
+  
+  <div class="sidebar-widget">
+    <h3 class="sidebar-title">Categories</h3>
+    <ul class="sidebar-list">
+      
+      <li>
+        <a href="http://localhost:1313/categories/architecture/">Architecture</a>
+        <span class="sidebar-count">9</span>
+      </li>
+      
+      <li>
+        <a href="http://localhost:1313/categories/data-modeling/">Data Modeling</a>
+        <span class="sidebar-count">3</span>
+      </li>
+      
+      <li>
+        <a href="http://localhost:1313/categories/data-management/">Data Management</a>
+        <span class="sidebar-count">1</span>
+      </li>
+      
+      <li>
+        <a href="http://localhost:1313/categories/databases/">Databases</a>
+        <span class="sidebar-count">1</span>
+      </li>
+      
+      <li>
+        <a href="http://localhost:1313/categories/sql/">SQL</a>
+        <span class="sidebar-count">1</span>
+      </li>
+      
+      <li>
+        <a href="http://localhost:1313/categories/storytelling/">Storytelling</a>
+        <span class="sidebar-count">1</span>
+      </li>
+      
+    </ul>
+  </div>
+
+  
+  <div class="sidebar-widget">
+    <h3 class="sidebar-title">Tags</h3>
+    <div class="sidebar-tags">
+      
+      <a href="http://localhost:1313/tags/data-quality/" class="sidebar-tag">Data Quality</a>
+      
+      <a href="http://localhost:1313/tags/databricks/" class="sidebar-tag">Databricks</a>
+      
+      <a href="http://localhost:1313/tags/snowflake-schema/" class="sidebar-tag">Snowflake Schema</a>
+      
+      <a href="http://localhost:1313/tags/sql/" class="sidebar-tag">SQL</a>
+      
+      <a href="http://localhost:1313/tags/star-schema/" class="sidebar-tag">Star Schema</a>
+      
+      <a href="http://localhost:1313/tags/acid/" class="sidebar-tag">ACID</a>
+      
+      <a href="http://localhost:1313/tags/analytics/" class="sidebar-tag">Analytics</a>
+      
+      <a href="http://localhost:1313/tags/architecture/" class="sidebar-tag">Architecture</a>
+      
+      <a href="http://localhost:1313/tags/auditing/" class="sidebar-tag">Auditing</a>
+      
+      <a href="http://localhost:1313/tags/azure-sql/" class="sidebar-tag">Azure SQL</a>
+      
+      <a href="http://localhost:1313/tags/best-practices/" class="sidebar-tag">Best Practices</a>
+      
+      <a href="http://localhost:1313/tags/big-data/" class="sidebar-tag">Big Data</a>
+      
+      <a href="http://localhost:1313/tags/career/" class="sidebar-tag">Career</a>
+      
+      <a href="http://localhost:1313/tags/cloud/" class="sidebar-tag">Cloud</a>
+      
+      <a href="http://localhost:1313/tags/compliance/" class="sidebar-tag">Compliance</a>
+      
+      <a href="http://localhost:1313/tags/data-governance/" class="sidebar-tag">Data Governance</a>
+      
+      <a href="http://localhost:1313/tags/data-lake/" class="sidebar-tag">Data Lake</a>
+      
+      <a href="http://localhost:1313/tags/data-modeling/" class="sidebar-tag">Data Modeling</a>
+      
+      <a href="http://localhost:1313/tags/data-security/" class="sidebar-tag">Data Security</a>
+      
+      <a href="http://localhost:1313/tags/data-warehouse/" class="sidebar-tag">Data Warehouse</a>
+      
+      <a href="http://localhost:1313/tags/data-warehousing/" class="sidebar-tag">Data Warehousing</a>
+      
+      <a href="http://localhost:1313/tags/delta-lake/" class="sidebar-tag">Delta Lake</a>
+      
+      <a href="http://localhost:1313/tags/dimension-tables/" class="sidebar-tag">Dimension Tables</a>
+      
+      <a href="http://localhost:1313/tags/dimensional-modeling/" class="sidebar-tag">Dimensional Modeling</a>
+      
+      <a href="http://localhost:1313/tags/etl/" class="sidebar-tag">ETL</a>
+      
+      <a href="http://localhost:1313/tags/fact-tables/" class="sidebar-tag">Fact Tables</a>
+      
+      <a href="http://localhost:1313/tags/lakehouse/" class="sidebar-tag">Lakehouse</a>
+      
+      <a href="http://localhost:1313/tags/medallion-architecture/" class="sidebar-tag">Medallion Architecture</a>
+      
+      <a href="http://localhost:1313/tags/metadata/" class="sidebar-tag">Metadata</a>
+      
+      <a href="http://localhost:1313/tags/normalization/" class="sidebar-tag">Normalization</a>
+      
+      <a href="http://localhost:1313/tags/optimization/" class="sidebar-tag">Optimization</a>
+      
+      <a href="http://localhost:1313/tags/parquet/" class="sidebar-tag">Parquet</a>
+      
+      <a href="http://localhost:1313/tags/query-optimization/" class="sidebar-tag">Query Optimization</a>
+      
+      <a href="http://localhost:1313/tags/sql-server/" class="sidebar-tag">SQL Server</a>
+      
+      <a href="http://localhost:1313/tags/storage/" class="sidebar-tag">Storage</a>
+      
+      <a href="http://localhost:1313/tags/temporal-tables/" class="sidebar-tag">Temporal Tables</a>
+      
+      <a href="http://localhost:1313/tags/window-functions/" class="sidebar-tag">Window Functions</a>
+      
+    </div>
+  </div>
+
+</aside>
+
+    </div>
+    
+<footer class="footer">
+        <span>&copy; 2026 <a href="http://localhost:1313/">DataSubway</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

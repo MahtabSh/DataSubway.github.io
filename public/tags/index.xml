@@ -1,13 +1,76 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Tags on </title>
+    <title>Tags on DataSubway</title>
     <link>http://localhost:1313/tags/</link>
-    <description>Recent content in Tags on </description>
+    <description>Recent content in Tags on DataSubway</description>
     <generator>Hugo -- 0.155.2</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 09 Feb 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 06 Apr 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Analytics</title>
+      <link>http://localhost:1313/tags/analytics/</link>
+      <pubDate>Mon, 06 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/analytics/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Compliance</title>
+      <link>http://localhost:1313/tags/compliance/</link>
+      <pubDate>Mon, 06 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/compliance/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Data Governance</title>
+      <link>http://localhost:1313/tags/data-governance/</link>
+      <pubDate>Mon, 06 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/data-governance/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Data Quality</title>
+      <link>http://localhost:1313/tags/data-quality/</link>
+      <pubDate>Mon, 06 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/data-quality/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Data Security</title>
+      <link>http://localhost:1313/tags/data-security/</link>
+      <pubDate>Mon, 06 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/data-security/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Metadata</title>
+      <link>http://localhost:1313/tags/metadata/</link>
+      <pubDate>Mon, 06 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/metadata/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Query Optimization</title>
+      <link>http://localhost:1313/tags/query-optimization/</link>
+      <pubDate>Mon, 06 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/query-optimization/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>SQL</title>
+      <link>http://localhost:1313/tags/sql/</link>
+      <pubDate>Mon, 06 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/sql/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Window Functions</title>
+      <link>http://localhost:1313/tags/window-functions/</link>
+      <pubDate>Mon, 06 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/window-functions/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Best Practices</title>
       <link>http://localhost:1313/tags/best-practices/</link>
@@ -65,13 +128,6 @@
       <description></description>
     </item>
     <item>
-      <title>SQL</title>
-      <link>http://localhost:1313/tags/sql/</link>
-      <pubDate>Mon, 09 Feb 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/sql/</guid>
-      <description></description>
-    </item>
-    <item>
       <title>Star Schema</title>
       <link>http://localhost:1313/tags/star-schema/</link>
       <pubDate>Mon, 09 Feb 2026 00:00:00 +0000</pubDate>
@@ -104,13 +160,6 @@
       <link>http://localhost:1313/tags/big-data/</link>
       <pubDate>Sun, 08 Feb 2026 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/tags/big-data/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Data Quality</title>
-      <link>http://localhost:1313/tags/data-quality/</link>
-      <pubDate>Sun, 08 Feb 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/data-quality/</guid>
       <description></description>
     </item>
     <item>
@@ -216,13 +265,6 @@
       <link>http://localhost:1313/tags/lakehouse/</link>
       <pubDate>Sat, 07 Feb 2026 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/tags/lakehouse/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Data Engineering</title>
-      <link>http://localhost:1313/tags/data-engineering/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/data-engineering/</guid>
       <description></description>
     </item>
   </channel>

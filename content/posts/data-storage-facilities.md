@@ -3,6 +3,7 @@ title: "The Depot, the Terminal, and the Modern Hub: Where Does the Data Live?"
 date: 2026-02-07
 categories: ["Architecture"]
 tags: ["Data Lake", "Data Warehouse", "Lakehouse", "Cloud"]
+series: ["The Invisible City"]
 # cover:
 #     image: "/images/pos-2-im-1.png" # Suggested: An image of a futuristic train hub
 #     alt: "A high-tech data storage hub"

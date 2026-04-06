@@ -4,6 +4,7 @@ date: 2026-02-08
 # description: "Why Conductor Mickey uses Delta Lake to prevent 'Data Crashes' and enable Time Travel in the Invisible City."
 categories: ["Architecture"]
 tags: ["Delta Lake", "Databricks", "ACID", "Data Quality"]
+series: ["The Invisible City"]
 # cover:
 #     image: "/images/smart-depot-banner.jpg" # Suggested: Mickey in a high-tech control room
 #     alt: "Mickey Mouse managing a digital subway control center"

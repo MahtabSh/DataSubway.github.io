@@ -1,0 +1,39 @@
+<aside class="sidebar">
+
+  {{/* ── Series ── */}}
+  <div class="sidebar-widget">
+    <h3 class="sidebar-title">Series</h3>
+    <ul class="sidebar-list">
+      {{ range site.Taxonomies.series.ByCount }}
+      <li>
+        <a href="{{ .Page.Permalink }}">{{ .Page.Title }}</a>
+        <span class="sidebar-count">{{ .Count }}</span>
+      </li>
+      {{ end }}
+    </ul>
+  </div>
+
+  {{/* ── Categories ── */}}
+  <div class="sidebar-widget">
+    <h3 class="sidebar-title">Categories</h3>
+    <ul class="sidebar-list">
+      {{ range site.Taxonomies.categories.ByCount }}
+      <li>
+        <a href="{{ .Page.Permalink }}">{{ .Page.Title }}</a>
+        <span class="sidebar-count">{{ .Count }}</span>
+      </li>
+      {{ end }}
+    </ul>
+  </div>
+
+  {{/* ── Tags ── */}}
+  <div class="sidebar-widget">
+    <h3 class="sidebar-title">Tags</h3>
+    <div class="sidebar-tags">
+      {{ range site.Taxonomies.tags.ByCount }}
+      <a href="{{ .Page.Permalink }}" class="sidebar-tag">{{ .Page.Title }}</a>
+      {{ end }}
+    </div>
+  </div>
+
+</aside>

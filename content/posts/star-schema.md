@@ -4,6 +4,7 @@ date: 2026-02-09
 # description: "How Conductor Mickey uses Dimensional Modeling to prevent 'Spaghetti Data' and speed up the Data Subway."
 categories: ["Architecture", "Data Modeling"]
 tags: ["Star Schema", "Dimensional Modeling", "Fact Tables", "Dimension Tables"]
+series: ["The Invisible City"]
 # cover:
 #     image: "/images/star-schema-hub.jpg"
 #     alt: "Mickey Mouse standing in the center of a star-shaped subway hub"

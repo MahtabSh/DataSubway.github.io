@@ -4,6 +4,7 @@ date: 2026-02-09
 # description: "When the subway map grows too large, Conductor Mickey uses the Snowflake Schema to normalize the city and save space."
 categories: ["Architecture", "Data Modeling"]
 tags: ["Snowflake Schema", "Normalization", "Data Modeling", "SQL"]
+series: ["The Invisible City"]
 # cover:
 #     image: "/images/snowflake-district-banner.jpg"
 #     alt: "Mickey Mouse looking at a complex, crystalline subway map"

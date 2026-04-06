@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Data Management on DataSubway</title>
+    <link>http://localhost:1313/categories/data-management/</link>
+    <description>Recent content in Data Management on DataSubway</description>
+    <generator>Hugo -- 0.155.2</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 06 Apr 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/categories/data-management/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>The City Constitution: Establishing Order in the Invisible City</title>
+      <link>http://localhost:1313/posts/city-constitution-data-governance/</link>
+      <pubDate>Mon, 06 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/city-constitution-data-governance/</guid>
+      <description>&lt;p&gt;Before we dive into our next adventure with Conductor Mickey, we need to talk about the &amp;ldquo;law of the land.&amp;rdquo; In the tech world, we call this &lt;strong&gt;Data Governance&lt;/strong&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;what-is-data-governance&#34;&gt;What is Data Governance?&lt;/h2&gt;
+&lt;p&gt;At its core, Data Governance is a collection of processes, roles, policies, standards, and metrics that ensure the effective and efficient use of information. It isn&amp;rsquo;t just a software tool; it&amp;rsquo;s a management framework that defines:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Who&lt;/strong&gt; has the authority and responsibility for specific data assets.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;What&lt;/strong&gt; standards the data must meet (integrity, naming, etc.) before it is used.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;How&lt;/strong&gt; data is protected, stored, and shared.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;When&lt;/strong&gt; data should be archived, deleted, or updated.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Without governance, a data system is just a pile of unorganized files. With it, data becomes a reliable asset that can power everything from basic reports to the most advanced AI.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

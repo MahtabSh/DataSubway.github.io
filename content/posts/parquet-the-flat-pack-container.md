@@ -4,6 +4,7 @@ date: 2026-02-08
 # description: "Why moving from CSV to Parquet is like upgrading from wooden crates to futuristic flat-pack containers."
 categories: ["Architecture"]
 tags: ["Parquet", "Optimization", "Storage", "Big Data"]
+series: ["The Invisible City"]
 # cover:
 #     image: "/images/parquet-container.jpg" # Suggested: Mickey looking at futuristic shipping containers
 #     alt: "Futuristic shipping containers in a data subway station"

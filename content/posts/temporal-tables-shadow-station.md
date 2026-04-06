@@ -4,6 +4,7 @@ date: 2026-02-08
 # description: "How Conductor Mickey uses Temporal Tables to answer the ultimate question: 'What did we know, and when did we know it?'"
 categories: ["Architecture", "Databases"]
 tags: ["Azure SQL", "SQL Server", "Temporal Tables", "Auditing"]
+series: ["The Invisible City"]
 # cover:
 #     image: "/images/shadow-station-banner.jpg" 
 #     alt: "Mickey Mouse looking at a clock in a dual-layer subway station"

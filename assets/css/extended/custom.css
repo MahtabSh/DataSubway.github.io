@@ -1,0 +1,535 @@
+/* ============================================================
+   DataSubway — Custom Theme
+   Palette:
+     --subway-navy:   #0d1b2a   (dark background)
+     --subway-blue:   #1a73e8   (electric blue, primary accent)
+     --subway-gold:   #f4a800   (gold, highlight)
+     --subway-red:    #e03e52   (red line)
+     --subway-teal:   #00b4a6   (teal, secondary accent)
+     --subway-light:  #f5f7fa   (light background)
+============================================================ */
+
+/* ── Root Variables ───────────────────────────────────────── */
+:root {
+  --subway-navy:  #0d1b2a;
+  --subway-blue:  #1a73e8;
+  --subway-gold:  #f4a800;
+  --subway-red:   #e03e52;
+  --subway-teal:  #00b4a6;
+  --subway-light: #f5f7fa;
+
+  /* Match nav width to our two-column layout */
+  --nav-width: 1060px;
+}
+
+/* Consistent background on ALL page types (PaperMod makes list pages gray) */
+body,
+body.list {
+  background: var(--theme) !important;
+}
+
+/* ── Header / Nav ─────────────────────────────────────────── */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--subway-navy);
+}
+
+.nav {
+  background: var(--subway-navy) !important;
+  border-bottom: 3px solid var(--subway-gold);
+}
+
+.logo a,
+.logo span {
+  color: var(--subway-gold) !important;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  font-size: 1.25rem;
+}
+
+#menu-btn,
+#theme-toggle,
+.nav a {
+  color: #e8edf2 !important;
+}
+
+.nav a:hover {
+  color: var(--subway-gold) !important;
+}
+
+/* ── Home Hero Panel ──────────────────────────────────────── */
+.home-info {
+  background: linear-gradient(135deg, var(--subway-navy) 0%, #1a2d45 100%);
+  border: 2px solid var(--subway-gold);
+  border-radius: 12px;
+  padding: 2.5rem 2rem;
+  margin-bottom: 2.5rem;
+}
+
+.home-info .entry-header h1 {
+  color: var(--subway-gold);
+  font-size: 2rem;
+  font-weight: 800;
+}
+
+.home-info .entry-content p {
+  color: #c9d6e3;
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+/* ── Post List Cards ──────────────────────────────────────── */
+.post-entry {
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 1.25rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+  border-left: 4px solid var(--subway-blue);
+}
+
+.post-entry:hover {
+  border-color: var(--subway-blue);
+  box-shadow: 0 4px 18px rgba(26, 115, 232, 0.12);
+  transform: translateY(-2px);
+}
+
+.dark .post-entry {
+  border-color: #1e3a5f;
+  border-left-color: var(--subway-gold);
+  background: #111e2e;
+}
+
+.dark .post-entry:hover {
+  border-color: var(--subway-gold);
+  box-shadow: 0 4px 18px rgba(244, 168, 0, 0.15);
+}
+
+.post-entry .entry-header h2 {
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
+/* ── Series-Colored Left Border on Cards ──────────────────── */
+/* Applied via series tag class — PaperMod renders series in post meta */
+
+/* ── Series Badges in Post Meta ───────────────────────────── */
+.post-tags a,
+.post-categories a {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  margin: 2px 3px;
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+
+.post-tags a:hover,
+.post-categories a:hover {
+  opacity: 0.82;
+}
+
+/* Category pills */
+.post-categories a {
+  background: var(--subway-navy);
+  color: #fff !important;
+}
+
+.dark .post-categories a {
+  background: #1e3a5f;
+}
+
+/* Tag pills */
+.post-tags a {
+  background: #eef2ff;
+  color: var(--subway-blue) !important;
+  border: 1px solid #c7d7f9;
+}
+
+.dark .post-tags a {
+  background: #0f2a44;
+  color: #7eb8f7 !important;
+  border-color: #1e3a5f;
+}
+
+/* ── Post Page Header ─────────────────────────────────────── */
+.post-header {
+  border-bottom: 2px solid var(--subway-gold);
+  padding-bottom: 1rem;
+  margin-bottom: 1.75rem;
+}
+
+.post-title {
+  font-size: 2rem;
+  font-weight: 800;
+  line-height: 1.25;
+}
+
+/* ── Series Navigation Banner ─────────────────────────────── */
+.series-nav {
+  background: linear-gradient(90deg, #0d1b2a, #1a2d45);
+  border: 1px solid var(--subway-gold);
+  border-radius: 8px;
+  padding: 0.85rem 1.25rem;
+  margin: 2rem 0;
+  color: #c9d6e3;
+  font-size: 0.88rem;
+}
+
+/* ── Headings in Posts ────────────────────────────────────── */
+.post-content h2 {
+  color: var(--subway-blue);
+  border-left: 4px solid var(--subway-gold);
+  padding-left: 0.75rem;
+  margin-top: 2.25rem;
+}
+
+.dark .post-content h2 {
+  color: var(--subway-gold);
+  border-left-color: var(--subway-blue);
+}
+
+.post-content h3 {
+  color: var(--subway-teal);
+  margin-top: 1.5rem;
+}
+
+.dark .post-content h3 {
+  color: #5dd6cc;
+}
+
+/* ── Blockquotes (Mickey's Lessons) ──────────────────────── */
+.post-content blockquote {
+  border-left: 4px solid var(--subway-gold);
+  background: #fffbee;
+  border-radius: 0 8px 8px 0;
+  padding: 0.85rem 1.25rem;
+  margin: 1.5rem 0;
+  color: #5a4500;
+  font-style: italic;
+}
+
+.dark .post-content blockquote {
+  background: #1c1a0e;
+  border-left-color: var(--subway-gold);
+  color: #e8d89a;
+}
+
+/* ── Code Blocks ──────────────────────────────────────────── */
+.post-content pre {
+  border-radius: 10px;
+  border: 1px solid #1e3a5f;
+  background: #0d1b2a !important;
+  padding: 1.25rem !important;
+}
+
+.post-content code {
+  background: #eef2ff;
+  color: var(--subway-red);
+  border-radius: 4px;
+  padding: 1px 6px;
+  font-size: 0.88em;
+}
+
+.dark .post-content code {
+  background: #0f2a44;
+  color: #f4a800;
+}
+
+/* pre > code should inherit pre's bg */
+.post-content pre code {
+  background: transparent !important;
+  color: inherit !important;
+  padding: 0;
+}
+
+/* ── Tables ───────────────────────────────────────────────── */
+.post-content table {
+  border-collapse: collapse;
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 1.5rem 0;
+  font-size: 0.93rem;
+}
+
+.post-content table thead tr {
+  background: var(--subway-navy);
+  color: var(--subway-gold);
+}
+
+.dark .post-content table thead tr {
+  background: #1a2d45;
+}
+
+.post-content table th {
+  padding: 0.65rem 1rem;
+  text-align: left;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+}
+
+.post-content table td {
+  padding: 0.6rem 1rem;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.dark .post-content table td {
+  border-bottom-color: #1e3a5f;
+}
+
+.post-content table tbody tr:nth-child(even) {
+  background: #f5f7fa;
+}
+
+.dark .post-content table tbody tr:nth-child(even) {
+  background: #111e2e;
+}
+
+.post-content table tbody tr:hover {
+  background: #eef2ff;
+}
+
+.dark .post-content table tbody tr:hover {
+  background: #0f2a44;
+}
+
+/* ── Horizontal Rule ──────────────────────────────────────── */
+.post-content hr {
+  border: none;
+  height: 2px;
+  background: linear-gradient(90deg, var(--subway-blue), var(--subway-gold), var(--subway-teal));
+  border-radius: 2px;
+  margin: 2.5rem 0;
+  opacity: 0.6;
+}
+
+/* ── Footer ───────────────────────────────────────────────── */
+.footer {
+  border-top: 2px solid var(--subway-gold);
+  color: #8899aa;
+  font-size: 0.85rem;
+  padding-top: 1.25rem;
+}
+
+/* ── Breadcrumbs ──────────────────────────────────────────── */
+.breadcrumbs {
+  font-size: 0.82rem;
+  color: #8899aa;
+  margin-bottom: 0.5rem;
+}
+
+.breadcrumbs a {
+  color: var(--subway-blue) !important;
+}
+
+/* ── Tags / Category Index Pages ─────────────────────────── */
+.terms-tags a {
+  display: inline-block;
+  padding: 5px 14px;
+  margin: 4px;
+  border-radius: 20px;
+  background: var(--subway-navy);
+  color: #c9d6e3 !important;
+  font-size: 0.88rem;
+  font-weight: 600;
+  transition: background 0.2s, transform 0.15s;
+  text-decoration: none;
+}
+
+.terms-tags a:hover {
+  background: var(--subway-blue);
+  color: #fff !important;
+  transform: scale(1.05);
+}
+
+.dark .terms-tags a {
+  background: #1a2d45;
+}
+
+.dark .terms-tags a:hover {
+  background: var(--subway-gold);
+  color: var(--subway-navy) !important;
+}
+
+/* ── Reading Time & Meta ──────────────────────────────────── */
+.post-meta {
+  color: #8899aa;
+  font-size: 0.83rem;
+}
+
+/* ── Smooth Scrollbar ─────────────────────────────────────── */
+html {
+  scroll-behavior: smooth;
+}
+
+/* ============================================================
+   TWO-COLUMN LAYOUT WITH SIDEBAR
+============================================================ */
+
+.site-wrapper {
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
+  max-width: calc(var(--nav-width) + var(--gap) * 2);
+  margin: 0 auto;
+  padding: 0 var(--gap);
+}
+
+/* Override PaperMod's own centering on .main so our flex layout controls it */
+.site-wrapper .main {
+  flex: 1;
+  min-width: 0;
+  max-width: 100%;
+  margin: 0;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+/* ── Sidebar ──────────────────────────────────────────────── */
+.sidebar {
+  width: 240px;
+  flex-shrink: 0;
+  position: sticky;
+  top: 5rem;
+  padding-top: 1.5rem;
+}
+
+.sidebar-widget {
+  background: var(--subway-light);
+  border-radius: 10px;
+  padding: 1.1rem 1.25rem;
+  margin-bottom: 1.25rem;
+  border-left: 3px solid var(--subway-blue);
+}
+
+.dark .sidebar-widget {
+  background: #111e2e;
+  border-left-color: var(--subway-gold);
+}
+
+.sidebar-title {
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--subway-navy);
+  margin: 0 0 0.85rem 0;
+}
+
+.dark .sidebar-title {
+  color: var(--subway-gold);
+}
+
+.sidebar-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.sidebar-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.3rem 0;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.dark .sidebar-list li {
+  border-bottom-color: #1e3a5f;
+}
+
+.sidebar-list li:last-child {
+  border-bottom: none;
+}
+
+.sidebar-list a {
+  font-size: 0.875rem;
+  color: #334155;
+  text-decoration: none;
+  transition: color 0.15s;
+}
+
+.dark .sidebar-list a {
+  color: #a0b3c6;
+}
+
+.sidebar-list a:hover {
+  color: var(--subway-blue);
+}
+
+.dark .sidebar-list a:hover {
+  color: var(--subway-gold);
+}
+
+.sidebar-count {
+  font-size: 0.72rem;
+  background: #e2e8f0;
+  color: #64748b;
+  border-radius: 10px;
+  padding: 1px 7px;
+  font-weight: 600;
+}
+
+.dark .sidebar-count {
+  background: #1e3a5f;
+  color: #8899aa;
+}
+
+/* Tags in sidebar */
+.sidebar-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.sidebar-tag {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 12px;
+  background: #eef2ff;
+  color: var(--subway-blue) !important;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.15s;
+}
+
+.sidebar-tag:hover {
+  background: var(--subway-blue);
+  color: #fff !important;
+}
+
+.dark .sidebar-tag {
+  background: #0f2a44;
+  color: #7eb8f7 !important;
+}
+
+.dark .sidebar-tag:hover {
+  background: var(--subway-gold);
+  color: var(--subway-navy) !important;
+}
+
+/* Hide sidebar on small screens */
+@media (max-width: 900px) {
+  .site-wrapper {
+    flex-direction: column;
+  }
+  .sidebar {
+    width: 100%;
+    position: static;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  .sidebar-widget {
+    flex: 1;
+    min-width: 200px;
+    margin-bottom: 0;
+  }
+}
+

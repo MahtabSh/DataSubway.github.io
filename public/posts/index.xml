@@ -1,13 +1,73 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Posts on </title>
+    <title>Posts on DataSubway</title>
     <link>http://localhost:1313/posts/</link>
-    <description>Recent content in Posts on </description>
+    <description>Recent content in Posts on DataSubway</description>
     <generator>Hugo -- 0.155.2</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 09 Feb 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 06 Apr 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>SQL Window Functions: A Practical Guide</title>
+      <link>http://localhost:1313/posts/window-functions-sql/</link>
+      <pubDate>Mon, 06 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/window-functions-sql/</guid>
+      <description>&lt;p&gt;Window functions are one of the most powerful and underused features in SQL. Unlike &lt;code&gt;GROUP BY&lt;/code&gt;, they let you perform calculations &lt;strong&gt;across a set of rows related to the current row — without collapsing the result set&lt;/strong&gt;.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;the-core-syntax&#34;&gt;The Core Syntax&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;function_name() OVER (
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    PARTITION &lt;span style=&#34;color:#66d9ef&#34;&gt;BY&lt;/span&gt; column1
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;ORDER&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;BY&lt;/span&gt; column2
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;ROWS&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;/&lt;/span&gt;RANGE &lt;span style=&#34;color:#66d9ef&#34;&gt;BETWEEN&lt;/span&gt; ... &lt;span style=&#34;color:#66d9ef&#34;&gt;AND&lt;/span&gt; ...
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;Clause&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;Purpose&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;Required?&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;code&gt;PARTITION BY&lt;/code&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;Divides rows into groups (like GROUP BY, but rows are kept)&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;No&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;code&gt;ORDER BY&lt;/code&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;Defines the order within each partition&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;Depends on function&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;Frame (&lt;code&gt;ROWS BETWEEN&lt;/code&gt;)&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;Defines which rows to include relative to the current row&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;No&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;1-ranking-functions&#34;&gt;1. Ranking Functions&lt;/h2&gt;
+&lt;h3 id=&#34;row_number&#34;&gt;&lt;code&gt;ROW_NUMBER()&lt;/code&gt;&lt;/h3&gt;
+&lt;p&gt;Assigns a unique sequential integer to each row within a partition. No ties.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>The City Constitution: Establishing Order in the Invisible City</title>
+      <link>http://localhost:1313/posts/city-constitution-data-governance/</link>
+      <pubDate>Mon, 06 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/city-constitution-data-governance/</guid>
+      <description>&lt;p&gt;Before we dive into our next adventure with Conductor Mickey, we need to talk about the &amp;ldquo;law of the land.&amp;rdquo; In the tech world, we call this &lt;strong&gt;Data Governance&lt;/strong&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;what-is-data-governance&#34;&gt;What is Data Governance?&lt;/h2&gt;
+&lt;p&gt;At its core, Data Governance is a collection of processes, roles, policies, standards, and metrics that ensure the effective and efficient use of information. It isn&amp;rsquo;t just a software tool; it&amp;rsquo;s a management framework that defines:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Who&lt;/strong&gt; has the authority and responsibility for specific data assets.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;What&lt;/strong&gt; standards the data must meet (integrity, naming, etc.) before it is used.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;How&lt;/strong&gt; data is protected, stored, and shared.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;When&lt;/strong&gt; data should be archived, deleted, or updated.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Without governance, a data system is just a pile of unorganized files. With it, data becomes a reliable asset that can power everything from basic reports to the most advanced AI.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Star vs. Snowflake</title>
       <link>http://localhost:1313/posts/snowflake-vs-start-schema/</link>

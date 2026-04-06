@@ -4,6 +4,7 @@ date: 2026-02-08
 # description: "How Conductor Mickey uses a three-stage filtration system to turn 'Raw Junk' into 'Pure Gold' for the Invisible City."
 categories: ["Architecture"]
 tags: ["Medallion Architecture", "ETL", "Data Quality", "Databricks"]
+series: ["The Invisible City"]
 # cover:
 #     image: "/images/medallion-banner.jpg" # Suggested: Mickey looking at three glowing medals
 #     alt: "Mickey Mouse presenting Bronze, Silver, and Gold subway tokens"
