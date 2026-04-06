@@ -9,6 +9,7 @@ theme = "PaperMod"
   series = "series"
 
 [params]
+  author = "Mahtab Shahsavan"
   ShowReadingTime = true
   ShowShareButtons = false
   ShowPostNavLinks = true
