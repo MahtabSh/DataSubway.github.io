@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto" data-theme="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>The Great Train Debate: Batch vs. Stream Processing | DataSubway</title>
+<meta name="keywords" content="Batch Processing, Stream Processing, Real-Time, Data Pipelines, Kafka">
+<meta name="description" content="In the Invisible City, not every train travels at the same speed. Some are massive freight trains that move heavy loads once a night, while others are sleek, light subway cars that zip through the tunnels every single second.
+Choosing how to move your data is one of the most important decisions a Conductor can make. If you send a &ldquo;Real-Time&rdquo; message on a &ldquo;Midnight Freight&rdquo; train, the city won&rsquo;t react in time. If you try to fit a mountain of cargo onto a tiny &ldquo;Subway&rdquo; car, the tracks will jam. Today, Conductor Mickey is going to show us the difference between Batch and Stream processing.">
+<meta name="author" content="Mahtab Shahsavan">
+<link rel="canonical" href="http://localhost:1313/posts/batch-vs-stream-processing/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.118a89fde47bb94b56f51d5b33e1d7d2bf8fde0379fb35413386b9e0fe9030c6.css" integrity="sha256-EYqJ/eR7uUtW9R1bM&#43;HX0r&#43;P3gN5&#43;zVBM4a54P6QMMY=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/posts/batch-vs-stream-processing/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+                color-scheme: dark;
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .toc {
+                background: var(--entry);
+            }
+        }
+
+        @media (prefers-color-scheme: light) {
+            .list::-webkit-scrollbar-thumb {
+                border-color: var(--code-bg);
+            }
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script>
+</head>
+<body id="top">
+    <header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="DataSubway (Alt + H)">DataSubway</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/posts/" title="Blog">
+                    <span>Blog</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/about/" title="About">
+                    <span>About</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<div class="site-wrapper">
+      <main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="http://localhost:1313/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:1313/posts/">Posts</a></div>
+    <h1 class="post-title entry-hint-parent">
+      The Great Train Debate: Batch vs. Stream Processing
+    </h1>
+    <div class="post-meta"><span title='2026-04-09 00:00:00 +0000 UTC'>April 9, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Mahtab Shahsavan</span>
+
+</div>
+  </header> 
+  <div class="post-content"><p>In the Invisible City, not every train travels at the same speed. Some are massive freight trains that move heavy loads once a night, while others are sleek, light subway cars that zip through the tunnels every single second.</p>
+<p>Choosing how to move your data is one of the most important decisions a Conductor can make. If you send a &ldquo;Real-Time&rdquo; message on a &ldquo;Midnight Freight&rdquo; train, the city won&rsquo;t react in time. If you try to fit a mountain of cargo onto a tiny &ldquo;Subway&rdquo; car, the tracks will jam. Today, Conductor Mickey is going to show us the difference between <strong>Batch</strong> and <strong>Stream</strong> processing.</p>
+<hr>
+<h2 id="1-batch-processing-the-midnight-freight-train">1. Batch Processing: The Midnight Freight Train<a hidden class="anchor" aria-hidden="true" href="#1-batch-processing-the-midnight-freight-train">#</a></h2>
+<p><strong>The Concept:</strong> Batch processing is when you collect a large amount of data over a set period — an hour, a day, or a week — and process it all at once as one big &ldquo;batch.&rdquo;</p>
+<p><strong>The Story:</strong> Every night at midnight, when the city is quiet, a massive freight train arrives at the depot. It&rsquo;s carrying every ticket sale, every maintenance report, and every lost-and-found log from the last 24 hours. Mickey and his team spend the night unloading, sorting, and cleaning all of it so the Mayor has a perfect report on his desk by sunrise.</p>
+<p><strong>Best Practice:</strong> Use Batch for heavy, non-time-sensitive tasks like end-of-month financial closing or long-term trend analysis.</p>
+<blockquote>
+<p><strong>Mickey&rsquo;s Lesson:</strong> <em>&ldquo;It&rsquo;s a heavy job, but doing it all at once is the most efficient way to handle a mountain of cargo!&rdquo;</em></p>
+</blockquote>
+<hr>
+<h2 id="2-stream-processing-the-real-time-turnstile">2. Stream Processing: The Real-Time Turnstile<a hidden class="anchor" aria-hidden="true" href="#2-stream-processing-the-real-time-turnstile">#</a></h2>
+<p><strong>The Concept:</strong> Stream processing (or real-time processing) is when data is processed the very second it is created. There is no waiting — the data is handled piece by piece as it arrives.</p>
+<p><strong>The Story:</strong> Imagine the turnstiles at the main entrance. Every time a passenger swipes their card, Mickey needs to know immediately if the card is valid. He can&rsquo;t wait until midnight to check! The data flows through the tunnels like a constant stream of water, and Mickey has to catch it and act on it instantly.</p>
+<p><strong>Best Practice:</strong> Use Streaming for mission-critical tasks that require immediate action, like fraud detection, system alerts, or live passenger tracking.</p>
+<blockquote>
+<p><strong>Mickey&rsquo;s Lesson:</strong> <em>&ldquo;In a fast city, some answers just can&rsquo;t wait until tomorrow.&rdquo;</em></p>
+</blockquote>
+<hr>
+<h2 id="3-the-showdown-which-speed-does-your-city-need">3. The Showdown: Which Speed Does Your City Need?<a hidden class="anchor" aria-hidden="true" href="#3-the-showdown-which-speed-does-your-city-need">#</a></h2>
+<p>Mickey chooses his &ldquo;train type&rdquo; based on the urgency and the weight of the cargo.</p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left">Feature</th>
+          <th style="text-align: left">Batch Processing (Freight Train)</th>
+          <th style="text-align: left">Stream Processing (Subway)</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left"><strong>Pace</strong></td>
+          <td style="text-align: left">Periodic (Daily / Hourly)</td>
+          <td style="text-align: left">Continuous (Real-time)</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>Latency</strong></td>
+          <td style="text-align: left">High (Minutes to Hours)</td>
+          <td style="text-align: left">Very Low (Milliseconds to Seconds)</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>Complexity</strong></td>
+          <td style="text-align: left">Simpler to build and maintain</td>
+          <td style="text-align: left">Complex (requires constant monitoring)</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>Data Size</strong></td>
+          <td style="text-align: left">Very large volumes</td>
+          <td style="text-align: left">Individual records</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>Use Case</strong></td>
+          <td style="text-align: left">Weekly payroll, nightly audits</td>
+          <td style="text-align: left">Fraud detection, live stock prices</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>Tools</strong></td>
+          <td style="text-align: left">Spark, dbt, Airflow</td>
+          <td style="text-align: left">Kafka, Flink, Spark Streaming</td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+<h2 id="conclusion-the-balanced-city">Conclusion: The Balanced City<a hidden class="anchor" aria-hidden="true" href="#conclusion-the-balanced-city">#</a></h2>
+<p>A healthy Invisible City needs both. We use <strong>Batch</strong> for the deep, complex history and <strong>Streaming</strong> for the immediate, heart-pounding action. Knowing when to wait for the &ldquo;Freight Train&rdquo; and when to hop on the &ldquo;Subway&rdquo; is what makes you a Master Conductor of the data rails.</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="http://localhost:1313/tags/batch-processing/">Batch Processing</a></li>
+      <li><a href="http://localhost:1313/tags/stream-processing/">Stream Processing</a></li>
+      <li><a href="http://localhost:1313/tags/real-time/">Real-Time</a></li>
+      <li><a href="http://localhost:1313/tags/data-pipelines/">Data Pipelines</a></li>
+      <li><a href="http://localhost:1313/tags/kafka/">Kafka</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="next" href="http://localhost:1313/posts/window-functions-sql/">
+    <span class="title">Next »</span>
+    <br>
+    <span>SQL Window Functions: A Practical Guide</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+      </main><aside class="sidebar">
+
+  
+  <div class="sidebar-widget">
+    <h3 class="sidebar-title">Series</h3>
+    <ul class="sidebar-list">
+      
+      <li>
+        <a href="http://localhost:1313/series/the-invisible-city/">The Invisible City</a>
+        <span class="sidebar-count">11</span>
+      </li>
+      
+      <li>
+        <a href="http://localhost:1313/series/engineers-notebook/">Engineer&#39;s Notebook</a>
+        <span class="sidebar-count">1</span>
+      </li>
+      
+    </ul>
+  </div>
+
+  
+  <div class="sidebar-widget">
+    <h3 class="sidebar-title">Categories</h3>
+    <ul class="sidebar-list">
+      
+      <li>
+        <a href="http://localhost:1313/categories/architecture/">Architecture</a>
+        <span class="sidebar-count">10</span>
+      </li>
+      
+      <li>
+        <a href="http://localhost:1313/categories/data-modeling/">Data Modeling</a>
+        <span class="sidebar-count">3</span>
+      </li>
+      
+      <li>
+        <a href="http://localhost:1313/categories/data-management/">Data Management</a>
+        <span class="sidebar-count">1</span>
+      </li>
+      
+      <li>
+        <a href="http://localhost:1313/categories/databases/">Databases</a>
+        <span class="sidebar-count">1</span>
+      </li>
+      
+      <li>
+        <a href="http://localhost:1313/categories/sql/">SQL</a>
+        <span class="sidebar-count">1</span>
+      </li>
+      
+      <li>
+        <a href="http://localhost:1313/categories/storytelling/">Storytelling</a>
+        <span class="sidebar-count">1</span>
+      </li>
+      
+    </ul>
+  </div>
+
+  
+  <div class="sidebar-widget">
+    <h3 class="sidebar-title">Tags</h3>
+    <div class="sidebar-tags">
+      
+      <a href="http://localhost:1313/tags/data-quality/" class="sidebar-tag">Data Quality</a>
+      
+      <a href="http://localhost:1313/tags/databricks/" class="sidebar-tag">Databricks</a>
+      
+      <a href="http://localhost:1313/tags/snowflake-schema/" class="sidebar-tag">Snowflake Schema</a>
+      
+      <a href="http://localhost:1313/tags/sql/" class="sidebar-tag">SQL</a>
+      
+      <a href="http://localhost:1313/tags/star-schema/" class="sidebar-tag">Star Schema</a>
+      
+      <a href="http://localhost:1313/tags/acid/" class="sidebar-tag">ACID</a>
+      
+      <a href="http://localhost:1313/tags/analytics/" class="sidebar-tag">Analytics</a>
+      
+      <a href="http://localhost:1313/tags/architecture/" class="sidebar-tag">Architecture</a>
+      
+      <a href="http://localhost:1313/tags/auditing/" class="sidebar-tag">Auditing</a>
+      
+      <a href="http://localhost:1313/tags/azure-sql/" class="sidebar-tag">Azure SQL</a>
+      
+      <a href="http://localhost:1313/tags/batch-processing/" class="sidebar-tag">Batch Processing</a>
+      
+      <a href="http://localhost:1313/tags/best-practices/" class="sidebar-tag">Best Practices</a>
+      
+      <a href="http://localhost:1313/tags/big-data/" class="sidebar-tag">Big Data</a>
+      
+      <a href="http://localhost:1313/tags/career/" class="sidebar-tag">Career</a>
+      
+      <a href="http://localhost:1313/tags/cloud/" class="sidebar-tag">Cloud</a>
+      
+      <a href="http://localhost:1313/tags/compliance/" class="sidebar-tag">Compliance</a>
+      
+      <a href="http://localhost:1313/tags/data-governance/" class="sidebar-tag">Data Governance</a>
+      
+      <a href="http://localhost:1313/tags/data-lake/" class="sidebar-tag">Data Lake</a>
+      
+      <a href="http://localhost:1313/tags/data-modeling/" class="sidebar-tag">Data Modeling</a>
+      
+      <a href="http://localhost:1313/tags/data-pipelines/" class="sidebar-tag">Data Pipelines</a>
+      
+      <a href="http://localhost:1313/tags/data-security/" class="sidebar-tag">Data Security</a>
+      
+      <a href="http://localhost:1313/tags/data-warehouse/" class="sidebar-tag">Data Warehouse</a>
+      
+      <a href="http://localhost:1313/tags/data-warehousing/" class="sidebar-tag">Data Warehousing</a>
+      
+      <a href="http://localhost:1313/tags/delta-lake/" class="sidebar-tag">Delta Lake</a>
+      
+      <a href="http://localhost:1313/tags/dimension-tables/" class="sidebar-tag">Dimension Tables</a>
+      
+      <a href="http://localhost:1313/tags/dimensional-modeling/" class="sidebar-tag">Dimensional Modeling</a>
+      
+      <a href="http://localhost:1313/tags/etl/" class="sidebar-tag">ETL</a>
+      
+      <a href="http://localhost:1313/tags/fact-tables/" class="sidebar-tag">Fact Tables</a>
+      
+      <a href="http://localhost:1313/tags/kafka/" class="sidebar-tag">Kafka</a>
+      
+      <a href="http://localhost:1313/tags/lakehouse/" class="sidebar-tag">Lakehouse</a>
+      
+      <a href="http://localhost:1313/tags/medallion-architecture/" class="sidebar-tag">Medallion Architecture</a>
+      
+      <a href="http://localhost:1313/tags/metadata/" class="sidebar-tag">Metadata</a>
+      
+      <a href="http://localhost:1313/tags/normalization/" class="sidebar-tag">Normalization</a>
+      
+      <a href="http://localhost:1313/tags/optimization/" class="sidebar-tag">Optimization</a>
+      
+      <a href="http://localhost:1313/tags/parquet/" class="sidebar-tag">Parquet</a>
+      
+      <a href="http://localhost:1313/tags/query-optimization/" class="sidebar-tag">Query Optimization</a>
+      
+      <a href="http://localhost:1313/tags/real-time/" class="sidebar-tag">Real-Time</a>
+      
+      <a href="http://localhost:1313/tags/sql-server/" class="sidebar-tag">SQL Server</a>
+      
+      <a href="http://localhost:1313/tags/storage/" class="sidebar-tag">Storage</a>
+      
+      <a href="http://localhost:1313/tags/stream-processing/" class="sidebar-tag">Stream Processing</a>
+      
+      <a href="http://localhost:1313/tags/temporal-tables/" class="sidebar-tag">Temporal Tables</a>
+      
+      <a href="http://localhost:1313/tags/window-functions/" class="sidebar-tag">Window Functions</a>
+      
+    </div>
+  </div>
+
+</aside>
+
+    </div>
+    
+<footer class="footer">
+        <span>&copy; 2026 <a href="http://localhost:1313/">DataSubway</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

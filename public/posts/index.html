@@ -8,7 +8,7 @@
 <title>Posts | DataSubway</title>
 <meta name="keywords" content="">
 <meta name="description" content="Posts - DataSubway">
-<meta name="author" content="">
+<meta name="author" content="Mahtab Shahsavan">
 <link rel="canonical" href="http://localhost:1313/posts/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.118a89fde47bb94b56f51d5b33e1d7d2bf8fde0379fb35413386b9e0fe9030c6.css" integrity="sha256-EYqJ/eR7uUtW9R1bM&#43;HX0r&#43;P3gN5&#43;zVBM4a54P6QMMY=" rel="preload stylesheet" as="style">
 <link rel="icon" href="http://localhost:1313/favicon.ico">
@@ -125,6 +125,20 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">The Great Train Debate: Batch vs. Stream Processing
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>In the Invisible City, not every train travels at the same speed. Some are massive freight trains that move heavy loads once a night, while others are sleek, light subway cars that zip through the tunnels every single second.
+Choosing how to move your data is one of the most important decisions a Conductor can make. If you send a “Real-Time” message on a “Midnight Freight” train, the city won’t react in time. If you try to fit a mountain of cargo onto a tiny “Subway” car, the tracks will jam. Today, Conductor Mickey is going to show us the difference between Batch and Stream processing.
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2026-04-09 00:00:00 +0000 UTC'>April 9, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Mahtab Shahsavan</span></footer>
+  <a class="entry-link" aria-label="post link to The Great Train Debate: Batch vs. Stream Processing" href="http://localhost:1313/posts/batch-vs-stream-processing/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">SQL Window Functions: A Practical Guide
     </h2>
   </header>
@@ -133,7 +147,7 @@
 The Core Syntax function_name() OVER ( PARTITION BY column1 ORDER BY column2 ROWS/RANGE BETWEEN ... AND ... ) Clause Purpose Required? PARTITION BY Divides rows into groups (like GROUP BY, but rows are kept) No ORDER BY Defines the order within each partition Depends on function Frame (ROWS BETWEEN) Defines which rows to include relative to the current row No 1. Ranking Functions ROW_NUMBER() Assigns a unique sequential integer to each row within a partition. No ties.
 ...</p>
   </div>
-  <footer class="entry-footer"><span title='2026-04-06 00:00:00 +0000 UTC'>April 6, 2026</span>&nbsp;·&nbsp;<span>4 min</span></footer>
+  <footer class="entry-footer"><span title='2026-04-06 00:00:00 +0000 UTC'>April 6, 2026</span>&nbsp;·&nbsp;<span>4 min</span>&nbsp;·&nbsp;<span>Mahtab Shahsavan</span></footer>
   <a class="entry-link" aria-label="post link to SQL Window Functions: A Practical Guide" href="http://localhost:1313/posts/window-functions-sql/"></a>
 </article>
 
@@ -148,7 +162,7 @@ What is Data Governance? At its core, Data Governance is a collection of process
 Who has the authority and responsibility for specific data assets. What standards the data must meet (integrity, naming, etc.) before it is used. How data is protected, stored, and shared. When data should be archived, deleted, or updated. Without governance, a data system is just a pile of unorganized files. With it, data becomes a reliable asset that can power everything from basic reports to the most advanced AI.
 ...</p>
   </div>
-  <footer class="entry-footer"><span title='2026-04-06 00:00:00 +0000 UTC'>April 6, 2026</span>&nbsp;·&nbsp;<span>4 min</span></footer>
+  <footer class="entry-footer"><span title='2026-04-06 00:00:00 +0000 UTC'>April 6, 2026</span>&nbsp;·&nbsp;<span>4 min</span>&nbsp;·&nbsp;<span>Mahtab Shahsavan</span></footer>
   <a class="entry-link" aria-label="post link to The City Constitution: Establishing Order in the Invisible City" href="http://localhost:1313/posts/city-constitution-data-governance/"></a>
 </article>
 
@@ -163,7 +177,7 @@ In the previous posts, we explored two very different ways to organize a subway 
 The Star: Fast, flat, and simple. The Snowflake: Detailed, organized, and space-saving. But in the real world of Data Engineering, you can’t always have both. You have to choose your priority: Speed or Storage?
 ...</p>
   </div>
-  <footer class="entry-footer"><span title='2026-02-09 00:00:00 +0000 UTC'>February 9, 2026</span>&nbsp;·&nbsp;<span>2 min</span></footer>
+  <footer class="entry-footer"><span title='2026-02-09 00:00:00 +0000 UTC'>February 9, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Mahtab Shahsavan</span></footer>
   <a class="entry-link" aria-label="post link to Star vs. Snowflake" href="http://localhost:1313/posts/snowflake-vs-start-schema/"></a>
 </article>
 
@@ -178,7 +192,7 @@ If the Star Schema is the “Express Line,” the Snowflake is the “Highly Det
 What is a Snowflake Schema? In the previous post, we saw how the Star Schema keeps things simple. But what happens when your data starts repeating itself? What if you have 10 million rows, and you’ve written “United States” and “North America” 10 million times?
 ...</p>
   </div>
-  <footer class="entry-footer"><span title='2026-02-09 00:00:00 +0000 UTC'>February 9, 2026</span>&nbsp;·&nbsp;<span>3 min</span></footer>
+  <footer class="entry-footer"><span title='2026-02-09 00:00:00 +0000 UTC'>February 9, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Mahtab Shahsavan</span></footer>
   <a class="entry-link" aria-label="post link to The Snowflake Schema: The &#39;Detailed&#39; District" href="http://localhost:1313/posts/snowflake-schema/"></a>
 </article>
 
@@ -193,7 +207,7 @@ To keep things clean, we use Dimensional Modeling. The most famous layout for sp
 What is a Star Schema? The Star Schema is designed for one thing: Speed. It organizes your data into two distinct types of citizens: Facts and Dimensions.
 ...</p>
   </div>
-  <footer class="entry-footer"><span title='2026-02-09 00:00:00 +0000 UTC'>February 9, 2026</span>&nbsp;·&nbsp;<span>3 min</span></footer>
+  <footer class="entry-footer"><span title='2026-02-09 00:00:00 +0000 UTC'>February 9, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Mahtab Shahsavan</span></footer>
   <a class="entry-link" aria-label="post link to The Star Schema—The &#39;Express&#39; Hub" href="http://localhost:1313/posts/star-schema/"></a>
 </article>
 
@@ -208,7 +222,7 @@ When data first arrives at the station, it’s usually messy, tired, and covered
 It’s a three-stage filtration system that turns “Raw Junk” into “Pure Gold.”
 ...</p>
   </div>
-  <footer class="entry-footer"><span title='2026-02-08 00:00:00 +0000 UTC'>February 8, 2026</span>&nbsp;·&nbsp;<span>3 min</span></footer>
+  <footer class="entry-footer"><span title='2026-02-08 00:00:00 +0000 UTC'>February 8, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Mahtab Shahsavan</span></footer>
   <a class="entry-link" aria-label="post link to The Medallion Architecture Journey" href="http://localhost:1313/posts/medallion-architecture-from-mud-to-medals/"></a>
 </article>
 
@@ -223,7 +237,7 @@ Usually, a database has short-term memory. If a passenger changes their destinat
 But sometimes, Conductor Mickey needs to know exactly what the city looked like last Tuesday at 2:00 PM. To do that without a magic wand, he uses Temporal Tables.
 ...</p>
   </div>
-  <footer class="entry-footer"><span title='2026-02-08 00:00:00 +0000 UTC'>February 8, 2026</span>&nbsp;·&nbsp;<span>4 min</span></footer>
+  <footer class="entry-footer"><span title='2026-02-08 00:00:00 +0000 UTC'>February 8, 2026</span>&nbsp;·&nbsp;<span>4 min</span>&nbsp;·&nbsp;<span>Mahtab Shahsavan</span></footer>
   <a class="entry-link" aria-label="post link to Time Travel in Azure SQL Database" href="http://localhost:1313/posts/temporal-tables-shadow-station/"></a>
 </article>
 
@@ -238,7 +252,7 @@ If a train crashes while unloading, or if two conductors try to move the same cr
 But wait—is “Delta Lake” the same as a “Delta Table”? Let’s clear up the confusion with a trip to the Smart Depot.
 ...</p>
   </div>
-  <footer class="entry-footer"><span title='2026-02-08 00:00:00 +0000 UTC'>February 8, 2026</span>&nbsp;·&nbsp;<span>3 min</span></footer>
+  <footer class="entry-footer"><span title='2026-02-08 00:00:00 +0000 UTC'>February 8, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Mahtab Shahsavan</span></footer>
   <a class="entry-link" aria-label="post link to Understanding Delta Lake and Delta Tables" href="http://localhost:1313/posts/the-smart-depot-delta-lake/"></a>
 </article>
 
@@ -253,23 +267,8 @@ Most people are used to CSV files—they are like old-fashioned wooden crates. T
 The Vertical Train: Why Data Engineers Love Parquet Imagine a subway train full of passengers. Each passenger has a Name, an Age, and a Destination.
 ...</p>
   </div>
-  <footer class="entry-footer"><span title='2026-02-08 00:00:00 +0000 UTC'>February 8, 2026</span>&nbsp;·&nbsp;<span>3 min</span></footer>
+  <footer class="entry-footer"><span title='2026-02-08 00:00:00 +0000 UTC'>February 8, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Mahtab Shahsavan</span></footer>
   <a class="entry-link" aria-label="post link to Why Parquet is the Future of Data Shipping" href="http://localhost:1313/posts/parquet-the-flat-pack-container/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">The Depot, the Terminal, and the Modern Hub: Where Does the Data Live?
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>In our Invisible City, moving data is half the battle. The other half is putting it somewhere. Depending on who you ask—the engineers, the analysts, or the city planners—they’ll give you different answers on where the data should live.
-Let’s walk through the three main types of “storage facilities” in our city infrastructure, with Conductor Mickey as our guide.
-1. The Data Lake: The Massive Storage Yard The Analogy: Imagine a giant, sprawling industrial yard at the edge of the city. It’s cheap land where we throw everything. Old train seats, crates of unsorted tickets, literal piles of raw iron, and even some lost luggage.
-...</p>
-  </div>
-  <footer class="entry-footer"><span title='2026-02-07 00:00:00 +0000 UTC'>February 7, 2026</span>&nbsp;·&nbsp;<span>2 min</span></footer>
-  <a class="entry-link" aria-label="post link to The Depot, the Terminal, and the Modern Hub: Where Does the Data Live?" href="http://localhost:1313/posts/data-storage-facilities/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
@@ -286,7 +285,7 @@ Let’s walk through the three main types of “storage facilities” in our cit
       
       <li>
         <a href="http://localhost:1313/series/the-invisible-city/">The Invisible City</a>
-        <span class="sidebar-count">10</span>
+        <span class="sidebar-count">11</span>
       </li>
       
       <li>
@@ -304,7 +303,7 @@ Let’s walk through the three main types of “storage facilities” in our cit
       
       <li>
         <a href="http://localhost:1313/categories/architecture/">Architecture</a>
-        <span class="sidebar-count">9</span>
+        <span class="sidebar-count">10</span>
       </li>
       
       <li>
@@ -360,6 +359,8 @@ Let’s walk through the three main types of “storage facilities” in our cit
       
       <a href="http://localhost:1313/tags/azure-sql/" class="sidebar-tag">Azure SQL</a>
       
+      <a href="http://localhost:1313/tags/batch-processing/" class="sidebar-tag">Batch Processing</a>
+      
       <a href="http://localhost:1313/tags/best-practices/" class="sidebar-tag">Best Practices</a>
       
       <a href="http://localhost:1313/tags/big-data/" class="sidebar-tag">Big Data</a>
@@ -375,6 +376,8 @@ Let’s walk through the three main types of “storage facilities” in our cit
       <a href="http://localhost:1313/tags/data-lake/" class="sidebar-tag">Data Lake</a>
       
       <a href="http://localhost:1313/tags/data-modeling/" class="sidebar-tag">Data Modeling</a>
+      
+      <a href="http://localhost:1313/tags/data-pipelines/" class="sidebar-tag">Data Pipelines</a>
       
       <a href="http://localhost:1313/tags/data-security/" class="sidebar-tag">Data Security</a>
       
@@ -392,6 +395,8 @@ Let’s walk through the three main types of “storage facilities” in our cit
       
       <a href="http://localhost:1313/tags/fact-tables/" class="sidebar-tag">Fact Tables</a>
       
+      <a href="http://localhost:1313/tags/kafka/" class="sidebar-tag">Kafka</a>
+      
       <a href="http://localhost:1313/tags/lakehouse/" class="sidebar-tag">Lakehouse</a>
       
       <a href="http://localhost:1313/tags/medallion-architecture/" class="sidebar-tag">Medallion Architecture</a>
@@ -406,9 +411,13 @@ Let’s walk through the three main types of “storage facilities” in our cit
       
       <a href="http://localhost:1313/tags/query-optimization/" class="sidebar-tag">Query Optimization</a>
       
+      <a href="http://localhost:1313/tags/real-time/" class="sidebar-tag">Real-Time</a>
+      
       <a href="http://localhost:1313/tags/sql-server/" class="sidebar-tag">SQL Server</a>
       
       <a href="http://localhost:1313/tags/storage/" class="sidebar-tag">Storage</a>
+      
+      <a href="http://localhost:1313/tags/stream-processing/" class="sidebar-tag">Stream Processing</a>
       
       <a href="http://localhost:1313/tags/temporal-tables/" class="sidebar-tag">Temporal Tables</a>
       

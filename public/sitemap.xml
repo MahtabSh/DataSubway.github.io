@@ -2,13 +2,46 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/tags/analytics/</loc>
-    <lastmod>2026-04-06T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>http://localhost:1313/categories/architecture/</loc>
-    <lastmod>2026-04-06T00:00:00+00:00</lastmod>
+    <lastmod>2026-04-09T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/batch-processing/</loc>
+    <lastmod>2026-04-09T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/categories/</loc>
+    <lastmod>2026-04-09T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/data-pipelines/</loc>
+    <lastmod>2026-04-09T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/</loc>
+    <lastmod>2026-04-09T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/kafka/</loc>
+    <lastmod>2026-04-09T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/</loc>
+    <lastmod>2026-04-09T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/real-time/</loc>
+    <lastmod>2026-04-09T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/series/</loc>
+    <lastmod>2026-04-09T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/stream-processing/</loc>
+    <lastmod>2026-04-09T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/</loc>
+    <lastmod>2026-04-09T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/batch-vs-stream-processing/</loc>
+    <lastmod>2026-04-09T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/series/the-invisible-city/</loc>
+    <lastmod>2026-04-09T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/analytics/</loc>
     <lastmod>2026-04-06T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/compliance/</loc>
@@ -26,22 +59,13 @@
     <loc>http://localhost:1313/tags/data-security/</loc>
     <lastmod>2026-04-06T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/</loc>
-    <lastmod>2026-04-06T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>http://localhost:1313/series/engineers-notebook/</loc>
     <lastmod>2026-04-06T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/metadata/</loc>
     <lastmod>2026-04-06T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/</loc>
-    <lastmod>2026-04-06T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>http://localhost:1313/tags/query-optimization/</loc>
-    <lastmod>2026-04-06T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/series/</loc>
     <lastmod>2026-04-06T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/categories/sql/</loc>
@@ -53,13 +77,7 @@
     <loc>http://localhost:1313/posts/window-functions-sql/</loc>
     <lastmod>2026-04-06T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/</loc>
-    <lastmod>2026-04-06T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>http://localhost:1313/posts/city-constitution-data-governance/</loc>
-    <lastmod>2026-04-06T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/series/the-invisible-city/</loc>
     <lastmod>2026-04-06T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/window-functions/</loc>

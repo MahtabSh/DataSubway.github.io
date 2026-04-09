@@ -6,20 +6,20 @@
     <description>Recent content in Series on DataSubway</description>
     <generator>Hugo -- 0.155.2</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 06 Apr 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 09 Apr 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/series/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>The Invisible City</title>
+      <link>http://localhost:1313/series/the-invisible-city/</link>
+      <pubDate>Thu, 09 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/series/the-invisible-city/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Engineer&#39;s Notebook</title>
       <link>http://localhost:1313/series/engineers-notebook/</link>
       <pubDate>Mon, 06 Apr 2026 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/series/engineers-notebook/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>The Invisible City</title>
-      <link>http://localhost:1313/series/the-invisible-city/</link>
-      <pubDate>Mon, 06 Apr 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/series/the-invisible-city/</guid>
       <description></description>
     </item>
   </channel>

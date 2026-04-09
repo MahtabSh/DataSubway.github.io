@@ -6,8 +6,43 @@
     <description>Recent content in Tags on DataSubway</description>
     <generator>Hugo -- 0.155.2</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 06 Apr 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 09 Apr 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Batch Processing</title>
+      <link>http://localhost:1313/tags/batch-processing/</link>
+      <pubDate>Thu, 09 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/batch-processing/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Data Pipelines</title>
+      <link>http://localhost:1313/tags/data-pipelines/</link>
+      <pubDate>Thu, 09 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/data-pipelines/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Kafka</title>
+      <link>http://localhost:1313/tags/kafka/</link>
+      <pubDate>Thu, 09 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/kafka/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Real-Time</title>
+      <link>http://localhost:1313/tags/real-time/</link>
+      <pubDate>Thu, 09 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/real-time/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Stream Processing</title>
+      <link>http://localhost:1313/tags/stream-processing/</link>
+      <pubDate>Thu, 09 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/stream-processing/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Analytics</title>
       <link>http://localhost:1313/tags/analytics/</link>
